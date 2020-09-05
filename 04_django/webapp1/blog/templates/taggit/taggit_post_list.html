@@ -1,0 +1,12 @@
+{% extends "base2.html" %}
+
+{% block title %}taggit_post_list.html{% endblock %}
+
+{% block content %}
+
+    <h1>Posts for tag - {{ tagname }}</h1>
+    <br>
+
+    {% include 'post_list.html' %}
+
+{% endblock %}
