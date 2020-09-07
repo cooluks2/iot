@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     cout << size << endl;
     cout << index << endl;
 
-    cout << sizeof(s) << endl;  //
+    cout << sizeof(s) << endl;  // string 객체의 단위는 항상 32Byte이다.
     
     s.insert(0, "Hello !! ");  // 맨 앞에 문자열 추가
     cout << s << endl;
