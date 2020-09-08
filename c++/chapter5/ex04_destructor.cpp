@@ -1,4 +1,8 @@
-#include <string.h>
+#include <string.h>  // 
+#include <string>    // string 클래스 해더 파일
+#include <iostream>
+using namespace std;
+
 class MyString {
 private:
     char *s;  // 포인터
@@ -12,6 +16,7 @@ public:
     }
 
     ~MyString() {
+        cout << "~MyString ... delete s" << endl;
         delete[]s;
     }
 };
