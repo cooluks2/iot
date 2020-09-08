@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
 
     myCar.setSpeed(100);
 
-    cout << "�ӵ� : " << myCar.getSpeed() << endl;
+    cout << "speed : " << myCar.getSpeed() << endl;
     
 
     PrintData pd;
@@ -19,3 +19,4 @@ int main(int argc, char const *argv[]) {
 
     return 0;
 }
+
