@@ -18,6 +18,11 @@ int main() {
         cout << v.back() << " ";
         v.pop_back();
     }
+    cout << endl;
+    
+    cout << "size : " << v.size() << endl;
+    cout << "capacity : "  << v.capacity() <<endl;
+
 
     return 0;
 }
