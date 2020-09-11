@@ -1,21 +1,3 @@
-# 3색 LED
-
-
-
-## 3색 LED
-
-**3색 LED**
-
--   R, G, B 핀에 0~255 사이의 값을 analogWrite() 함수로 출력
--   3색의 조합으로 색상 결정
-
-<img src="02.3색_LED.assets/image-20200911161412438.png" alt="image-20200911161412438" style="zoom:80%;" />
-
-  
-
-**자동으로 랜덤하게 색 바꾸기**
-
-```c++
 const int redPin = 7; // RED
 const int greenPin = 5; // GREEN
 const int bluePin = 3; // BLUE
@@ -39,7 +21,3 @@ void loop() {
     analogWrite(bluePin, random(256));
     delay(1000);
 }
-```
-
-
-
