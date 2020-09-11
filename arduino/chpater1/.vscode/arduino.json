@@ -1,5 +1,5 @@
 {
-    "sketch": "led_ex09_serial/app.ino",
+    "sketch": "led_ex12/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }
