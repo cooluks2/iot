@@ -5,7 +5,8 @@
             "includePath": [
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
-                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\**"
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\**",
+                "C:\\Users\\coolu\\Documents\\Arduino\\libraries\\**"
             ],
             "forcedInclude": [
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
