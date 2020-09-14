@@ -46,9 +46,9 @@ String readLine() {
     return line;
 }
 
+
 // 16x2
 // 라인별로 한줄 전체를 덮어쓰는 형태...
-
 void loop() {
 
     if (Serial.available()) // 수신된 데이터 있는지
@@ -63,9 +63,12 @@ void loop() {
         if(line != "") {  //수신데이터 유무
             lcd.setCursor(0, 1);
             char buf[17];  // null 문자열이 자동적으로 맨 끝에 자동으로 생겨서 17개로 배열만든다.
+            float d = 3.14159;
+            char buf2[10];
+            dtostrf(d, 5, 3, buf2);
 
             // lcd.print(line.c_str());  // const char * 타입
-            sprintf(buf,  "%-16s", line.c_str());  // 문자열 buf에 출력, %-16s : 16칸 왼쪽 정렬
+            sprintf(buf,  "%-8s %s   ", line.c_str(), buf2);  // 문자열 buf에 출력, %-16s : 16칸 왼쪽 정렬
             lcd.print(buf);
         }
     }
