@@ -1,5 +1,5 @@
 {
-    "sketch": "lcd_ex06/app.ino",
+    "sketch": "buzzer_ex06/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }

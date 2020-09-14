@@ -10,12 +10,13 @@ void printTime() {
     unsigned long t = millis();
 
     //milisecond -> 시:분:초로 변환해서 출력
+    int misec = t%1000/100; //100ms 단위
     t = t/1000; // 밀리초 -> 초
     int h = t / 3600; // 초 -> 시간
     int m = (t - (h*3600)) / 60; //초 -> 분
     int s = t - ( h*3600 + m*60); //초
 
-    sprintf(buf, "%02d:%02d:%02d", h, m, s);
+    sprintf(buf, "%02d:%02d:%02d.%d", h, m, s, misec);
 
     lcd.setCursor(0,0);
     lcd.print(buf);
