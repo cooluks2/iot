@@ -1,5 +1,5 @@
 {
-    "sketch": "button_ex10/app.ino",
+    "sketch": "stopwatch/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }
