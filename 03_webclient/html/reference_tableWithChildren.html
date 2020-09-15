@@ -1,0 +1,23 @@
+<style>
+    table tr>th {  /* table tr > th 가 올바름 */
+        color: red;  /* tr 보다 th가 구체적이므로 이 색상이 나온다. */
+    }
+
+    tr:hover {
+        color: white;
+        background: black;
+    }
+</style>
+
+<body>
+    <table border="1">  <!-- 생략 했을 뿐 tbody가 있다. -->
+        <tr>
+            <th>이름</th>
+            <th>지역</th>
+        </tr>
+        <tr>
+            <td>윤인성</td>
+            <td>서울특별시 강서구 내발산동</td>
+        </tr>
+    </table>
+</body>

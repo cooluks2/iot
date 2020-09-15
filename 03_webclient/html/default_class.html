@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS3 Selector Basic</title>
+    <style>
+        .select {
+            color: red;
+        }
+
+        .summar {
+            background: blue
+        }
+
+        p.select.summar { /*p태그 선택자이면서 select와 summar를 가지고 있는거*/
+            color: white
+        }
+
+        #ts.select {} /*아이디가 ts이면서 select를 가지고 있는거*/
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="select summar">사과</li>
+        <li>바나나</li>
+        <li class="select">오렌지</li>
+        <li>감</li>
+    </ul>
+    <p class="select summar">테스트</p>
+</body>
+
+</html>

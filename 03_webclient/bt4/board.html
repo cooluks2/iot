@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        .jumbotron {
+            background-image: url('penguins.jpg');
+            background-size: 100%;
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron mb-0 pt-4" style="border-radius: 0;height:150px;">
+            <!--아래 마진 0, 각지게-->
+            <h1><i class="fas fa-home"></i>Bootstrap Tutorial</h1>
+            <p>Bootstrap is the most popular HTML, CSS...</p>
+        </div>
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">Navbar</a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <!-- 홈페이지 관례 -->
+                            <i class="fas fa-home"></i> Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <i class="fas fa-list"></i> 게시판</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="board.html">자유게시판</a>
+                            <a class="dropdown-item" href="board.html">비밀게시판</a>
+                            <a class="dropdown-item" href="board.html">방명록</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">
+                            <i class="fas fa-images"></i> 갤러리</a>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav ml-auto">
+                    <form class="form-inline" action="/action_page.php">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="submit"><i class="fas fa-search"></i>Search</button>
+                    </form>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-sign-in-alt"></i> 로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="join.html">
+                            <i class="fas fa-user-plus"></i> 회원가입</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="content">
+            <h1 class="my-5"> <i class="fas fa-list"></i> 게시판</h1>
+
+
+            <div class="text-right">(총 100건)</div>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">No</th>
+                        <th>제목</th>
+                        <th style="width: 160px;">작성자</th>
+                        <th style="width: 160px;">작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>무더운 날씨에요 <span class="badge badge-pill badge-danger"><i class="fas fa-tag"></i> New</span></td>
+                        <td>Doe</td>
+                        <td>2020-07-31</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>부트스트랩을 공부해요</td>
+                        <td>Moe</td>
+                        <td>2020-07-30</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>너무 더워요~</td>
+                        <td>Dooley</td>
+                        <td>2020-07-29</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Javascript는 너무 재미있어요</td>
+                        <td>Dooley</td>
+                        <td>2020-07-29</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>거짓말이야 !!!!</td>
+                        <td>Dooley</td>
+                        <td>2020-07-29</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>파이썬 짱이야!</td>
+                        <td>Dooley</td>
+                        <td>2020-07-29</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    </div>
+</body>
+
+</html>

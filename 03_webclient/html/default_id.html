@@ -1,0 +1,44 @@
+<style>
+    #header {  /*아이디 선택자*/
+        width: 800px;
+        margin: 0 auto;
+        /* margin: 40px 80px; 상 우 하 좌 순 */
+        /* 값을 2개 주면 (상,하), (좌,우) 순
+        /* 하나의 값을 주면 모든 방향의 여백이 같음 */
+        background: red;
+    }
+
+    #wrap {
+        width: 800px;
+        margin: 0 auto; /*좌우 여백 남는 부분으로 알아서*/
+        overflow: hidden;
+        background: salmon;
+    }
+
+    #aside {
+        width: 200px;
+        float: left; /* 블록을 때서 왼쪽으로 붙인다. */
+        background: blue;
+    }
+
+    #content {
+        width: 600px;
+        float: left;
+        background: green;
+    }
+</style>
+
+<body>
+    <div id="header">
+        <h1>#header 태그</h1>
+    </div>
+    <div id="wrap">  <!-- aside와 content는 wrap의 자식 -->
+        <div id="aside">
+            <h1>#aside 태그</h1>
+        </div>
+        <div id="content">
+            <h1>#content 태그</h1>
+        </div>
+    </div>
+    테스트 <!-- wrap에서 overflow: hidden; 이 없으면 오른쪽에 공간이 있어서 오른쪽에 표시됨 -->
+</body>
