@@ -1,5 +1,5 @@
 {
-    "sketch": "poten_ex03_led_pwm/app.ino",
+    "sketch": "joystick_ex01/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }
