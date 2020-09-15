@@ -7,5 +7,17 @@
 			"path": "..\\..\\..\\Documents\\Arduino\\libraries"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"optional": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp",
+			"system_error": "cpp",
+			"array": "cpp",
+			"functional": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp"
+		}
+	}
 }

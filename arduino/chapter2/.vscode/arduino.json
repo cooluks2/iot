@@ -1,5 +1,5 @@
 {
-    "sketch": "stopwatch/app.ino",
+    "sketch": "poten_ex03_led_pwm/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }
