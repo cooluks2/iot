@@ -1,5 +1,5 @@
 {
-    "sketch": "joystick_ex02_control/app.ino",
+    "sketch": "illu_ex02/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }
