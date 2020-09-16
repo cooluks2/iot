@@ -1,5 +1,5 @@
 {
-    "sketch": "ultra_ex01/app.ino",
+    "sketch": "ultra_ex02/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }

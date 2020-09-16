@@ -13,8 +13,8 @@ void loop() {
     delayMicroseconds(10);  // HIGH의 폭이 10㎲
     digitalWrite(triggerPin, LOW);
 
-    // echo 핀 입력으로부터 거리르 cm 단위로 계산
-    int distance = pulseIn(echoPin, HIGH) / 58;
+    // echo 핀 입력으로부터 거리를 cm 단위로 계산
+    int distance = pulseIn(echoPin, HIGH) / 58;  // 시간 측정 후 /58해서 거리를 알 수 있다.
 
     Serial.println("Distance(cm) = " + String(distance));
     delay(1000);
