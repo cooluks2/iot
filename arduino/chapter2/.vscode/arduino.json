@@ -1,5 +1,5 @@
 {
-    "sketch": "illu_ex02/app.ino",
+    "sketch": "dht11_ex01_lcd/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }

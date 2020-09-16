@@ -25,7 +25,7 @@ void printIllu(int value) {
 
 void loop() {
     int readVal = illu.read();
-    readVal = constrain(readVal, 0, 200);
+    readVal = constrain(readVal, 0, 200);  // 센서의 민감도 조정
     int brightness = map(readVal, 0, 200, 255, 0);
     printIllu(readVal);
     led.set(brightness);
