@@ -1,0 +1,5 @@
+{
+    "sketch": "esp_ex03/app.ino",
+    "board": "arduino:avr:uno",
+    "port": "COM6"
+}
