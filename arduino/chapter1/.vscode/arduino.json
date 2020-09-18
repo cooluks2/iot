@@ -1,5 +1,0 @@
-{
-    "sketch": "led_ex13_2/app.ino",
-    "board": "arduino:avr:uno",
-    "port": "COM6"
-}
