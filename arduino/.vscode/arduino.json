@@ -1,5 +1,6 @@
 {
     "sketch": "chapter4/MQTT_ex/app.ino",
-    "board": "arduino:avr:uno",
-    "port": "COM6"
+    "board": "arduino:avr:pro",
+    "port": "COM7",
+    "configuration": "cpu=16MHzatmega328"
 }

@@ -1,0 +1,20 @@
+{% extends "base2.html" %}
+{% block title %}post_search.html{% endblock %}
+{% block content %}
+    <h1>Blog Search</h1>
+    <br>
+
+    <form action="." method="post"> {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+    </form>
+
+    <br/><br/>
+
+    {% if object_list %}
+        {% include 'post_list.html' %}
+
+    {% elif search_term %}
+    <b><i>Search Word({{ search_term }}) Not Found !</i></b>
+    {% endif %}
+{% endblock %}
