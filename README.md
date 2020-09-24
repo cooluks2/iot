@@ -71,6 +71,7 @@
         <details>
         <summary>MD 상세 보기</summary>
         <div markdown="1">
+        
         [00_HTTP_프로토콜.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/00_HTTP_프로토콜.md)
 
         [01_Django_프로젝트_만들기.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/01_Django_프로젝트_만들기.md)
@@ -96,8 +97,6 @@
         [10.2_실전_프로그램_개발-콘텐츠_편집_기능(Blog).md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/10.2_실전_프로그램_개발-콘텐츠_편집_기능(Blog).md)
 
         [10.3_실전_프로그램_개발-콘텐츠_편집_기능(Blog)-TinyMCE.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/10.3_실전_프로그램_개발-콘텐츠_편집_기능(Blog)-TinyMCE.md)
-
-        [10.4_실전_프로그램_개발-콘텐츠_편집_기능(Blog 앱)-파일_업로드,다운로드.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/10.4_실전_프로그램_개발-콘텐츠_편집_기능(Blog 앱)-파일_업로드%2C다운로드.md)
 
         </div>
         </details>
@@ -195,7 +194,6 @@
     </div>
     </details>
     
-
 3.  게이트웨이 디바이스 제어(Raspberrypi)
 
     <details>
