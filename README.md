@@ -32,7 +32,6 @@
 <details>
 <summary>MD 상세 보기</summary>
 <div markdown="1">
-
 [00.자바스크립트.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/00.자바스크립트.md)
 
 [01.데이터_타입.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/01.데이터_타입.md)
@@ -66,11 +65,9 @@
 
 -   Django
         [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/04_django/webapp1)
-    
 <details>
 <summary>MD 상세 보기</summary>
 <div markdown="1">
-
 [00_HTTP_프로토콜.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/00_HTTP_프로토콜.md)
     
 [01_Django_프로젝트_만들기.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/01_Django_프로젝트_만들기.md)
@@ -101,7 +98,7 @@
     
 </div>
 </details>
-    [프로젝트 CODE](https://github.com/bongwon-suh/Niche-market)
+[프로젝트 CODE](https://github.com/bongwon-suh/Niche-market)
 
 <br>
 
@@ -144,8 +141,8 @@
 
 
 2.  엣지 디바이스 제어 (arduino)
-    [CODE](https://github.com/cooluks2/iot/tree/master/02.device/arduino)
     
+    [CODE](https://github.com/cooluks2/iot/tree/master/02.device/arduino)
 <details>
 <summary>MD 상세 보기</summary>
 <div markdown="1">
