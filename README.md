@@ -10,7 +10,7 @@
 
 1.  파이썬 프로그래밍
 
-    [CODE]: https://github.com/cooluks2/iot/tree/master/01.Interface/01_python	"CODE"
+    [CODE] : https://github.com/cooluks2/iot/tree/master/01.Interface/01_python "123"
 
     
 
