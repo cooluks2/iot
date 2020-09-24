@@ -10,30 +10,27 @@
 
 1.  파이썬 프로그래밍
 
-    [CODE] : https://github.com/cooluks2/iot/tree/master/01.Interface/01_python "123"
-
-    
+    [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/01_python)
 
 2.  데이터베이스
 
-    [CODE][https://github.com/cooluks2/iot/tree/master/01.Interface/02_mariadb]
+    [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/02_mariadb)
     
 3.  웹인터페이스 개발
 
     -   html
-        
-    
-    [CODE][https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/html]
-        
--   bt4
-    
-    [CODE][https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/bt4]
-    
-    -   javascript
-    [CODE][https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/javascript]
-    
-    <details markdown="javascript">
-    <summary>MD 상세 보기</summary>
+
+        [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/html)
+
+       - bt4
+
+         [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/bt4)
+
+    - javascript
+
+        [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/javascript)
+<details markdown="javascript">
+<summary>MD 상세 보기</summary>
 
 [00.자바스크립트.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/00.자바스크립트.md)
     
@@ -67,7 +64,7 @@
 </details>
 
 -   Django
-        [CODE][https://github.com/cooluks2/iot/tree/master/01.Interface/04_django/webapp1]
+        [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/04_django/webapp1)
     
 	<details markdown="Django">
         <summary>MD 상세 보기</summary>
@@ -101,7 +98,7 @@
 [10.4_실전_프로그램_개발-콘텐츠_편집_기능(Blog 앱)-파일_업로드,다운로드.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/10.4_실전_프로그램_개발-콘텐츠_편집_기능(Blog 앱)-파일_업로드%2C다운로드.md)
     
 </details>
-    [프로젝트 CODE][https://github.com/bongwon-suh/Niche-market]
+    [프로젝트 CODE](https://github.com/bongwon-suh/Niche-market)
 
 <br>
 
@@ -111,7 +108,7 @@
 
 1.  C++
 	
-    [CODE][https://github.com/cooluks2/iot/tree/master/02.device/c%2B%2B]
+    [CODE](https://github.com/cooluks2/iot/tree/master/02.device/c%2B%2B)
     
     <details markdown="C++">
         <summary>MD 상세 보기</summary>
@@ -142,7 +139,7 @@
 
 
 2.  엣지 디바이스 제어 (arduino)
-    [CODE][https://github.com/cooluks2/iot/tree/master/02.device/arduino]
+    [CODE](https://github.com/cooluks2/iot/tree/master/02.device/arduino)
     
     <details markdown="arduino">
         <summary>MD 상세 보기</summary>
