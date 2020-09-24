@@ -29,11 +29,12 @@
     - javascript
 
         [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/03_webclient/javascript)
-<details markdown="javascript">
+<details>
 <summary>MD 상세 보기</summary>
+<div markdown="1">
 
 [00.자바스크립트.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/00.자바스크립트.md)
-    
+
 [01.데이터_타입.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/01.데이터_타입.md)
     
 [02.변수.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/02.변수.md)
@@ -59,15 +60,16 @@
 [12.클래스.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/12.클래스.md)
     
 [13.클래스_ES6.md](https://github.com/cooluks2/iot/blob/master/01.Interface/03_webclient/javascriptMD/13.클래스_ES6.md)
-    
+</div>
 
 </details>
 
 -   Django
         [CODE](https://github.com/cooluks2/iot/tree/master/01.Interface/04_django/webapp1)
     
-	<details markdown="Django">
-        <summary>MD 상세 보기</summary>
+<details>
+<summary>MD 상세 보기</summary>
+<div markdown="1">
 
 [00_HTTP_프로토콜.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/00_HTTP_프로토콜.md)
     
@@ -97,6 +99,7 @@
     
 [10.4_실전_프로그램_개발-콘텐츠_편집_기능(Blog 앱)-파일_업로드,다운로드.md](https://github.com/cooluks2/iot/blob/master/01.Interface/04_django/10.4_실전_프로그램_개발-콘텐츠_편집_기능(Blog 앱)-파일_업로드%2C다운로드.md)
     
+</div>
 </details>
     [프로젝트 CODE](https://github.com/bongwon-suh/Niche-market)
 
@@ -110,8 +113,9 @@
 	
     [CODE](https://github.com/cooluks2/iot/tree/master/02.device/c%2B%2B)
     
-    <details markdown="C++">
-        <summary>MD 상세 보기</summary>
+<details>
+<summary>MD 상세 보기</summary>
+<div markdown="1">
 
 [00.개발환경_구축.md](https://github.com/cooluks2/iot/blob/master/02.device/c%2B%2BMD/00.개발환경_구축.md)
 
@@ -135,14 +139,16 @@
 
 [09.상속.md](https://github.com/cooluks2/iot/blob/master/02.device/c%2B%2BMD/09.상속.md)
 
+</div>
 </details>
 
 
 2.  엣지 디바이스 제어 (arduino)
     [CODE](https://github.com/cooluks2/iot/tree/master/02.device/arduino)
     
-    <details markdown="arduino">
-        <summary>MD 상세 보기</summary>
+<details>
+<summary>MD 상세 보기</summary>
+<div markdown="1">
 
 -   디지털,아날로그 출력
 
@@ -186,20 +192,19 @@
 
     [2.Digital_Sensors.md](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/05.37센서/2.Digital_Sensors.md)
 
+</div>
 </details>
     
 
 3.  게이트웨이 디바이스 제어(Raspberrypi)
 
-    <details markdown="Raspberrypi">
-        <summary>MD 상세 보기</summary>
+<details>
+<summary>MD 상세 보기</summary>
+<div markdown="1">
 
 -   추가중
 
 </details>
-
-
-​    
 
 
 
