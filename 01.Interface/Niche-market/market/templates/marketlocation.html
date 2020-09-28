@@ -1,0 +1,45 @@
+<div style="color: black;">
+<div id="map" style="width:100%;height:300px;magin:0 auto"></div>
+</div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=672f1dc7e3016f169ace1e986e9d359c"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    mapOption = {
+        center: new kakao.maps.LatLng({{market_detail.latitude}}, {{market_detail.longitude}}), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption);
+
+// 마커가 표시될 위치입니다
+var markerPosition  = new kakao.maps.LatLng({{market_detail.latitude}}, {{market_detail.longitude}});
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+var iwContent = '<div style="padding:5px; text-align:center;"><b>{{market_detail.market_name}}</b><br><a href="https://map.kakao.com/link/map/{{market_detail.market_name}},{{market_detail.latitude}},{{market_detail.longitude}}" style="color:blue" target="_blank">큰지도보기</a> | <a href="https://map.kakao.com/link/to/{{market_detail.market_name}},{{market_detail.latitude}},{{market_detail.longitude}}" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new kakao.maps.LatLng({{market_detail.longitude}}, {{market_detail.latitude}}); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+    position : iwPosition,
+    content : iwContent
+});
+
+// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker);
+
+// 반응형으로 사이즈 변경시에도 핀 가운데 위치
+$(window).on('resize', function(){
+    map.relayout();
+    map.setCenter(markerPosition);
+});
+
+
+</script>

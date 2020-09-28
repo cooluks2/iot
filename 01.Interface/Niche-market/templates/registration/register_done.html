@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}register_done.html{% endblock %}
+{% block content %}
+
+<style>
+.content {
+text-align: center;
+height: 20%;
+width: 25%;
+}
+
+</style>
+
+<div class="content">
+<h1 style="font-weight:bold;">회원가입 완료</h1>
+    <br><br>
+    <i class="fas fa-sign-in-alt" style="font-size:2.0em;"><a href="{% url 'login' %}"> 로그인</a> </i>
+
+</div>
+
+{% endblock %}

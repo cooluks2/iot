@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}login.html{% endblock %}
+{% block content %}
+<style>
+.content {
+text-align: center;
+height: 40%;
+width: 25%;
+}
+::placeholder {
+color:black;
+font-size:1.1em;
+}
+.form-group{
+font-weight: bold;
+font-size:1.1em;
+}
+</style>
+<div class="content">
+<form action="." method="post">
+    {% csrf_token %}
+    <h1 style="font-weight:bold;">Login</h1>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <div class="font-weight-bold" style="color:white; background-color:red;">
+            사용자 정보를 다시 한번 확인해 주세요.
+        </div>
+    </div>
+    {% endif %}
+    <div class="form-group">
+        {{ form.username|attr:"autofocus"|attr:"placeholder=아이디"}}
+    </div>
+
+    <div class="form-group">
+        {{ form.password|attr:"placeholder=비밀번호"}}
+    </div>
+    <div class="form-group">
+        <div class="offset-sm-2 col-sm-5">
+            <input type="submit" value="Log in" class="btn btn-info"/>
+            <input type="hidden" name="next" value="{{ next }}"/>
+        </div>
+    </div>
+</form>
+</div>
+{% endblock %}

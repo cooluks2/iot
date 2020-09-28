@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {%load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Django Web Programming{% endblock %}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+*:focus {
+  outline: none;
+}
+
+.hn{font-family: 'Hanna', sans-serif;}
+
+body {
+  margin: 0 auto;
+  background: #eee;
+  overflow: hidden;
+  position: relative;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+}
+
+#main {
+  transition: 0.5s;
+  position: relative;
+  transform: translateX(0);
+}
+#main.nav-open {
+  transform: translate3d(300px, 0, 0);
+}
+
+nav {
+  width: 300px;
+  color: #2d2d2d;
+  right: 0;
+  height: 100vh;
+  position: fixed;
+  transition: 0.5s;
+  transform: translateX(300px);
+}
+nav a {
+    color: #2d2d2d;
+}
+nav h3 {
+  padding: 0 60px 0 30px;
+  margin: 20px 0 30px;
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 300;
+}
+nav.open {
+  transform: translateX(0);
+}
+
+.nav-level {
+  padding-top: 100px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #dadada;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.nav-overlay:before {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  opacity: 1;
+}
+
+.nav-overlay:after {
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
+  -moz-transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
+  transition: opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s;
+}
+
+.nav-overlay:before,
+.nav-overlay:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  content: '';
+  opacity: 0;
+}
+
+nav.open .nav-overlay ul li {
+  box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+}
+nav.open .nav-overlay:after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  background: #dadada;
+  float: none !important;
+  display: block !important;
+  transition: 0.5s !important;
+}
+ul li a {
+  color: #2d2d2d;
+  font-size: 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 60px 0 30px;
+  text-align: right;
+}
+
+.back {
+  text-align: right;
+  padding: 0 90px 0 30px;
+  background: #dadada;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #2d2d2d;
+  height: 60px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+}
+.back:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.back.back-icon {
+  position: relative;
+}
+.back.back-icon:before, .back.back-icon:after {
+  content: '';
+  position: absolute;
+  background: #2d2d2d;
+}
+.back.back-icon:before {
+  width: 8px;
+  height: 1px;
+  transform: rotate(45deg);
+  top: 27px;
+  right: 58px;
+}
+.back.back-icon:after {
+  width: 1px;
+  height: 8px;
+  transform: rotate(45deg);
+  right: 62px;
+  top: 29px;
+}
+
+.submenu {
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  background: #dadada;
+  left: 0;
+  transition: 0.3s;
+  transform: translate3d(100%, 0, 0);
+  top: 0;
+  border: 1px solid #fff;
+  border-top: none;
+  opacity: 0;
+  pointer-events: none;
+}
+.submenu.open {
+  transform: translate3d(40px, 0, 0);
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.hamburger {
+  float: right;
+  padding: 48px 0px 15px;
+  cursor: pointer;
+  transition-property: opacity, filter, translate3d;
+  transition-duration: 0.5s;
+  transition-delay: 0.5s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  position: absolute;
+  right: 60px;
+  z-index: 5;
+  overflow: visible;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/*
+   * Squeeze
+   */
+.hamburger--squeeze .hamburger-inner {
+  transition-duration: 0.075s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--squeeze .hamburger-inner::before {
+  transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+
+.hamburger--squeeze .hamburger-inner::after {
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger--squeeze.is-active .hamburger-inner {
+  transform: rotate(45deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.hamburger--squeeze.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+}
+
+.hamburger--squeeze.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+nav.open + .hamburger .hamburger-inner {
+  background: #2d2d2d;
+}
+nav.open + .hamburger .hamburger-inner:before, nav.open + .hamburger .hamburger-inner:after {
+  background: #2d2d2d;
+}
+
+.logo {
+  margin-left: 60px;
+  z-index: 5;
+}
+
+.logo-brand {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 30px;
+  text-transform: uppercase;
+  top: 40px;
+  position: relative;
+  width: 117px;
+  height: 40px;
+  text-indent: -999999px;
+  z-index: 5;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  float: left;
+}
+
+.hero-view {
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-size: cover;
+  background-position: 0px 50%;
+  transform: translateY(-60px);
+
+}
+
+
+.hero-view h1{
+  text-align: center;
+  font-weight: 300;
+  font-size: 3rem;
+}
+.hero-view .hero-view__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  z-index: -1;
+  top: 0;
+}
+.hero-view .hero-view__content {
+  text-align: center;
+  color: #fff;
+}
+.hero-view .hero-view__content h1 {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.target1 { display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+
+
+
+    </style>
+</head>
+<body>
+<nav class="hn">
+
+    <div class="nav-level">
+        <div class="nav-header">
+            <h3><a href="{% url 'home' %}"><i class="fas fa-home"> 틈새시장</i></a></h3>
+        </div>
+        <ul>
+
+            <!--            if문 시작-->
+            {% if user.is_active %}
+            <li>
+                <a href="#" class="back-icon"><i class="fas fa-user-alt"> {{user}}</i></a>
+                <div class="submenu nav-level">
+                    <div class="nav-header">
+                        <h3>{{user}}</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="{% url 'logout' %}">로그아웃</a>
+                            <a href="{% url 'password_change' %}">사용자정보변경</a>
+                            {% if user.is_staff %}
+                            <a href="{% url 'market:market_add' %}" class="back-icon">시장추가</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!--            else문 -->
+            {% else %}
+            <li>
+                <a href="#" class="back-icon"><i class="fas fa-user-alt-slash"> Anonymous</i></a>
+                <div class="submenu nav-level">
+                    <div class="nav-header">
+                        <h3>Anonymous</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="{% url 'login' %}">로그인</a>
+                            <a href="{% url 'register' %}">회원가입</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            <!--            endif-->
+
+            <li>
+                <a href="#" class="back-icon"><i class="fas fa-store"> 시장목록</i></a>
+                <div class="submenu nav-level">
+                    <div class="nav-header">
+                        <h3>지역선택</h3>
+                    </div>
+                    <ul>
+                        {% for i in location %}
+                        <li>
+                            <a href="#" class="back-icon">{{i.location}}</a>
+                            <div class="submenu nav-level">
+                                <div class="nav-header">
+                                    <h3>{{i.location}}</h3>
+                                </div>
+                                <ul>
+                                    {% for x in market_list %}
+                                    {% if x.location_id == i.id %}
+                                    <li><a href="{% url 'market:market' x.id %}" class="back-icon">{{x.market_name}}</a>
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                <div class="back back-icon">Back</div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="back back-icon">Back</div>
+                </div>
+            </li>
+            <li><a href="{% url 'notice:notice_list' %}" class="back-icon"><i class="fas fa-clipboard"> 공지사항</i></a></li>
+<!--            권한 작업 후 시장추가와 점포추가는 계정 하위 메뉴로 들어갈 예정-->
+
+        </ul>
+    </div>
+
+</nav>
+
+<div class="hamburger hamburger--squeeze" type="button" id="hamburger">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</div>
+<div id="main">
+    <section>
+        <div class="row">
+            <div class="col s6">
+                <div class="logo">
+                    <a class="logo-brand" href="#"></a>
+                </div>
+            </div>
+            <div class="col s6">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="hero-view" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url(http://bupyeong-market.com/upload/main/20170227103531072.jpg)">
+            {% block content %} {% endblock %}
+        </div>
+    </section>
+
+
+</div>
+<script id="rendered-js">
+    $( document ).ready(function() {
+
+    function extend( a, b ) {
+      for( var key in b ) {
+        if( b.hasOwnProperty( key ) ) {
+          a[key] = b[key];
+        }
+      }
+      return a;
+    }
+
+    toggleNav("nav", ".hamburger");
+    //toggleLevels("nav");
+    //backNav();
+    //checkNavLevel();
+
+    var nav = $("nav");
+    var main = $("#main")
+    var navTranslate = 40;
+    var mainPosition = $("nav").width();
+    var navPosition = 0;
+
+
+
+    function backNav() {
+        $(".back").on("click", function(){
+             //var submenu = $(this).closest("div.submenu");
+             //var navOverlay = $(this).closest(".nav-overlay.nav-covered");
+
+             //navOverlay.toggleClass("nav-overlay nav-covered")
+
+             //mainPosition = mainPosition - navTranslate;
+             //navPosition  = navPosition - navTranslate;
+
+             //$(main).css("transform", 'translate3d(-' + mainPosition + 'px,0,0)');
+             //$(nav).css("transform", 'translate3d(-' + navPosition + 'px,0,0)');
+
+             //(submenu.hasClass('open')) ? submenu.toggleClass("open") : console.log("");
+        });
+    }
+    function toggleNav(navClass, hamburgerClass) {
+
+        $(hamburgerClass).on("click", function() {
+            //$(this).toggleClass("is-active");
+            $(navClass).toggleClass("open");
+
+            if(!$(navClass).hasClass('open')) {
+                $(navClass).css("transform", 'translateX(300px)');
+                $("#main").css("transform", 'translateX(0)');
+                resetNav();
+            } else {
+                $(navClass).css("transform", 'translateX(0)');
+                $("#main").css("transform", 'translateX(-300px)');
+            }
+            $("#main").toggleClass("nav-open")
+        })
+    }
+    function toggleLevels(nav) {
+
+         $(nav).on('click', function(event){
+              var $target = event.target;
+
+              if(!isNaN($($target).data('level'))) {
+                  console.log(navPosition)
+                  if( $($target).data('level') === 1 ) {
+                      navPosition = 40;
+
+                      $($target).toggleClass('nav-overlay nav-covered');
+                      $($target).find("div.submenu").toggleClass('open');
+
+                      $(nav).css("transform", 'translate3d(0px,0,0)');
+                      $(main).css("transform", 'translateX(-300px)');
+
+                      resetNav();
+
+                  } else {
+                      navPosition = navPosition - navTranslate;
+                      mainPosition = mainPosition - navTranslate;
+                      $(nav).css("transform", 'translate3d(-' + navPosition + 'px,0,0)');
+                      $(main).css("transform", 'translate3d(-' + mainPosition + 'px,0,0)');
+
+                      $($target).toggleClass('nav-overlay nav-covered');
+                      $($target).find("div.submenu").toggleClass('open');
+                  }
+
+
+              };
+
+         })
+
+    }
+    function resetNav() {
+          mainPosition = $('nav').width();
+          navPosition = 0;
+          $(".nav-overlay").removeClass("nav-overlay");
+          $(".submenu").removeClass("open");
+    };
+    function checkNavLevel() {
+        $("a[href$='#']").on("click", function(){
+
+            var navLevel = $(this).closest("div.nav-level");
+
+            if($(this).next().hasClass("submenu")) {
+                $(this).next().toggleClass("open");
+
+                navLevel.toggleClass("nav-overlay nav-covered");
+
+                mainPosition = mainPosition + navTranslate;
+                navPosition  = navPosition + navTranslate;
+
+                $(main).css("transform", 'translate3d(-' + mainPosition + 'px,0,0)');
+                $(nav).css("transform", 'translate3d(-' + navPosition + 'px,0,0)');
+            }
+
+        });
+    }
+
+    function sideMenu( el, main, trigger, options ) {
+        this.el = el;
+        this.main = main;
+        this.trigger = trigger;
+        this.options = extend( this.defaults, options );
+        this._init();
+    }
+
+    sideMenu.prototype = {
+      defaults : {
+        backClass : '.back',
+        navLevel: '.nav-level'
+      },
+      _init: function() {
+          var self = this;
+          this.level = 1;
+          this.menuOpen = false;
+          this.navTranslate = 40;
+          this.navPosition = 0;
+          this.navWidth = $(this.el).width();
+
+          this._openMenu();
+          this._toggleLevels();
+          this._toggleBack();
+          this._setLevels(this.defaults.navLevel);
+
+      },
+      _toggleLevels: function() {
+          let self = this;
+
+          $("a[href$='#']").on("click", function(){
+              let navLevel = $(this).closest("div.nav-level");
+
+              if($(this).next().hasClass("submenu")) {
+
+                  $(this).next().toggleClass("open");
+
+                  navLevel.toggleClass("nav-overlay nav-covered");
+
+                  self.navWidth = self.navWidth + self.navTranslate;
+                  self.navPosition  = self.navPosition + self.navTranslate;
+
+                  self._transform( self.navWidth, self.main );
+                  self._transform( self.navPosition, self.el );
+
+              }
+          });
+      },
+      _toggleBack: function () {
+
+          let self = this,
+              back = $(self.defaults.backClass);
+
+          back.on("click", function(){
+                let navLevel = $(this).closest(self.defaults.navLevel),
+                    navOverlay = $(this).closest(".nav-overlay.nav-covered");
+                    navOverlay.toggleClass("nav-overlay nav-covered");
+
+                self.navWidth = self.navWidth - self.navTranslate;
+                self.navPosition  = self.navPosition - self.navTranslate;
+
+                self._transform( self.navWidth, self.main );
+                self._transform( self.navPosition, self.el );
+
+                (navLevel.hasClass('open')) ? navLevel.toggleClass("open") : null;
+
+          });
+      },
+      _transform: function(value, selector) {
+          $(selector).css("transform", 'translate3d(-' + value + 'px,0,0)');
+      },
+      _openMenu: function() {
+          var self = this;
+          $(self.trigger).on("click", function() {
+            $(self.trigger).toggleClass("is-active");
+
+            if($(self.trigger).hasClass("is-active")) {
+              self.menuOpen = true;
+              self._resetMenu();
+            } else {
+              self.menuOpen = false;
+              self.level = 0;
+            };
+          });
+      },
+      _resetMenu: function() {
+
+          this.navWidth = $(this.el).width();
+          this.navPosition = 0;
+          $(".nav-overlay").removeClass("nav-overlay");
+          $(".submenu").removeClass("open");
+
+      },
+      _setLevels : function(navLevel) {
+         $(navLevel).each(function(i) {
+            $(this).attr("data-level" , (i+1));
+         });
+      }
+    }
+
+    new sideMenu( "nav", "#main" , ".hamburger" );
+
+
+
+});
+
+
+
+
+</script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+</script>
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+{% block extra-script %}{% endblock %}
+</html>

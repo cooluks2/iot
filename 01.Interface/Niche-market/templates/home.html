@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title%}Home{% endblock %}
+{% block content%}
+<!--이 안에 작성-->
+
+
+
+<div class="content hn">
+    <h1><i class="fas fa-info-circle"></i>틈새시장</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <!--              1번째 카드-->
+            <div class="col-sm-5">
+                <div class="card card-chart" style="background-color:rgba(255,255,255,0.9);">
+                    <div class="card-header card-header-success" style="text-align:left;">
+                        <i class="fas fa-sign-in-alt"></i><span class="hn"> 서울시 전통시장 위치</span></div>
+                        <div class="card-body" style="padding:5px;" id="map">
+                            {% include "map.html" %}
+                        </div>
+                </div>
+            </div>
+            <!--              1번째 카드 끝-->
+            <!--              2번째 카드-->
+            <div class="col-sm-7">
+                <div class="card" style="background-color:rgba(134,12,232,0.6);">
+                    <div class="card-header card-header-success" style="text-align:left;">
+                        <i class="fas fa-sign-in-alt"></i><span class="hn"> 서울시 전통시장 행사 안내</span></div>
+                    <div class="card-body table-responsive" style="padding-top:2px;overflow:hidden;">
+                        <table class="table table-hover" style="margin-bottom:2px;">
+                            <tbody>
+                            {% for seoul in html_content %}
+                                {% if forloop.counter < 10 %}
+                                <tr style="color:white;" onclick="location.href='{{seoul.1}}'">
+                                    <td class="target1" style="padding:0.2rem;width:80%;">{{ seoul.0|safe }}</td>
+                                    <td class="target1" style="padding:0.1rem;width:20%;">{{ seoul.2|safe }}</td>
+                                </tr>
+                            {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--              2번째 카드 끝-->
+        </div>
+        <div class="row">
+            <!--              2번째 열 1번째 카드 시작-->
+            <div class="col-sm-12 col-sm-12">
+                <div class="card card-chart" style="background-color:rgba(255,255,255,0.9);">
+                    <div class="card-header card-header-success" style="text-align:left;"><i
+                            class="fas fa-sign-in-alt"></i><span class="hn"> 서울시 전통시장 추천</span></div>
+                        <div class="card-body">
+                            {% include "card.html" %}
+                        </div>
+                </div>
+            </div>
+            <!--              2번째열 1번째 카드 끝-->
+            <!--              2번째 열 2번째 카드 시작-->
+<!--            <div class="col-lg-6 col-md-12">-->
+<!--                <div class="card" style="background-color:rgba(134,12,232,0.6);">-->
+<!--                    <div class="card-header card-header-success" style="text-align: left;"><i-->
+<!--                            class="fas fa-sign-in-alt"> 네이버 블로그</i>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <!--              2번째 열 2번째 카드 끝-->
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+
+<link rel ="stylesheet" type="text/css" href ="/static/Style.css"/>
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+
+
+<!-- favicon.ico 404 (Not Found) -->
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<!--이 안에 작성-->
+{% endblock %}
+
+
+
+
+
+

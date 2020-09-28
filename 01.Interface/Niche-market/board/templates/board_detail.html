@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}게시판 내용{% endblock %}
+
+{% block content %}
+<link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
+<style>
+    .content {
+        text-align: center;
+        height: 73%;
+        width: 50%;
+        overflow-y: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+        .content::-webkit-scrollbar {
+         display: none;
+    }
+
+.card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.target1 { display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hn{font-family: 'Hanna', sans-serif;}
+.card > .card-inner {
+  padding:10px;
+}
+
+textarea.form-control{
+	width:100%;
+	height:200px;
+	color: black;
+    resize:none;
+
+}
+
+</style>
+
+<div class="content hn">
+    <div class="container-fluid">
+        <div class="row">
+            <!--              2번째 카드-->
+            <div class="col-sm-12">
+                <div class="card border-0" style="background-color:rgba(120,190,40,0.8); color:white;">
+                    <div class="card-inner">
+                        <div class="header text-left">
+                            <div class="form-group"><br>
+                                <h1 style="font-weight:bold;">{{board.title}}</h1><br>
+                                <h4>글쓴이 : {{board.owner}}</h4><br>
+                                <h4>작성시간 : {{board.registered_date}}</h4><br>
+                                <h4>내용</h4>
+                                <textarea class="form-control" readonly>{{board.content}}</textarea>
+                            </div>
+                            <div class="text-left">
+                                <!--                                권한 추가시 표시할 부분-->
+                                {% if board.owner == user %}
+                                <a href="{% url 'board:board_update' board.id %}" class="mr-3">
+                                    <i class="far fa-edit"></i> 수정</a>
+                                <a href="{% url 'board:board_delete' board.id %}" class="text-danger mr-3">
+                                    <i class="fas fa-trash"></i> 삭제</a>
+                                {% endif %}
+                            </div>
+                            <br>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>            <!--              2번째 카드 끝-->
+
+</div>
+
+</div>
+</div>
+
+{% endblock %}

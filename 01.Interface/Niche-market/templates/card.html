@@ -1,0 +1,26 @@
+<div class="support-grid"></div>
+<div class="market_list">
+  <div class="band">
+      {% for m in market_list reversed %}
+      {% if forloop.counter < 12 %}
+        <div class="item-{{forloop.counter}}">
+              <a href="{% url 'market:market' m.id %}" class="card1">
+                <!--첨부파일이 없으면 기본 이미지 있으면 대표사진-->
+                {% if m.files.get.id %}
+                <div class="thumb" style="background-image: url(/market/market_download/{{ m.files.get.id }});"></div>
+                {% else %}
+                <div class="thumb" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg);"></div>
+                {% endif %}
+                <!--첨부파일이 없으면 기본 이미지 있으면 대표사진 여기까지-->
+                <article class="hn">
+                  <h2>{{m.market_name}}</h2>
+                  <p>{{m.products|linebreaks}}</p>
+                  <span>{{m.address|linebreaks}}</span>
+
+                </article>
+              </a>
+        </div>
+      {% endif %}
+      {% endfor %}
+  </div>
+</div>

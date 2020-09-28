@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% block title %}점포안내{% endblock %}
+
+{% block content %}
+
+<style>
+    .content {
+        text-align: center;
+        height: 70%;
+        width: 70%;
+                overflow-y: scroll;
+          -ms-overflow-style: none;  /* IE and Edge */
+           scrollbar-width: none;  /* Firefox */
+    }
+    .content::-webkit-scrollbar {
+         display: none;
+    }
+
+
+    .container-wrap>.container .row {
+        background: #ff0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .container>.row {
+        background: #FF0000;
+
+    }
+
+    .container-wrap>.blank {
+        height: 3px;
+        width: 1px;
+        background: #B2EBF4;
+    }
+
+
+.card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  margin-top:10px;
+  margin-bottom:10px;
+  background-color:#FFF;
+}
+
+
+.card > .card-inner {
+  padding:10px;
+}
+.card .header h2, h3 {
+  margin-bottom: 0px;
+  margin-top:0px;
+}
+.card .header {
+  margin-bottom:5px;
+}
+.card img{
+  width:100%;
+}
+
+textarea {
+width:100%;
+height: 2rem;
+background-color: #fff;
+color: black;
+}
+
+label{
+color:white;
+
+}
+
+
+
+</style>
+
+<div class="content hn">
+    <div class="container-fluid">
+        <div class="row">
+            <!--              1번째 카드-->
+            <div class="col-sm-4">
+                <div class="card border-0" style="background-color:rgba(38,94,171,0); box-shadow:none;">
+                    <div class="image">
+                        <!--첨부파일이 없으면 기본 이미지 있으면 대표사진-->
+                        {% if store.files.get.id %}
+                        <img src="{% url 'market:store_download' store.files.get.id %}">
+                        {% else %}
+                        <img class="card-img-top" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg">
+                        {% endif %}
+                        <!--첨부파일이 없으면 기본 이미지 있으면 대표사진 여기까지-->
+                    </div>
+                    <div class="card-inner">
+                        <div class="header">
+                            <h2>{{store.market_list}}</h2>
+                            <h4>{{store.store_name}}</h4>
+                        </div>
+                        <div>
+                            <div class="text-right">
+                                <!--                                권한 추가시 표시할 부분-->
+                                {% if store.owner == user %}
+                                <a href="{% url 'market:store_update' store.id %}" class="mr-3">
+                                    <i class="far fa-edit"></i> 수정</a>
+                                <a href="{% url 'market:store_delete' store.id %}" class="text-danger mr-3">
+                                    <i class="fas fa-trash"></i> 삭제</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--              1번째 카드 끝-->
+            <!--              2번째 카드-->
+            <div class="col-sm-8">
+                <div class="card" style="background-color:rgba(30,190,240,0.8);">
+                    <div class="card-inner">
+                        <div class="header text-left" style="color:white;">
+                            <h4>{{store.introduction}}</h4>
+                            <h4>OPEN : {{store.open_hour}}</h4>
+                            <h4>CLOSE : {{store.open_hour}}</h4>
+                            <h4>휴무일 : {{store.hour_information}}</h4>
+                        </div>
+                        <h4 style="color:white;">사용자 이용후기</h4>
+                        <div class="text-left" style="color:white;">
+                            <table class="table table-hover" style="margin-bottom:0;">
+                                <tbody>
+                                {% for comment in comments %}
+                                <tr style="color:white;">
+                                    <td style="padding:0.65rem;">{{ comment.comment }}</td>
+                                    <td style="padding:0.65rem;">{{ comment.score }}</td>
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                            <ul class="pagination justify-content-center">
+                                {% if comments.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?p={{comments.previous_page_number}}">이전</a>
+                                </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link disabled" href="#">이전</a>
+                                </li>
+                                {% endif %}
+
+                                <li class="page-item active">
+                                    <a class="page-link">{{comments.number}}/{{comments.paginator.num_pages}}</a>
+                                </li>
+
+                                {% if comments.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?p={{comments.next_page_number}}">다음</a>
+                                </li>
+                                {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link disabled" href="#">다음</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+
+                            {% if user.is_active %}
+                            <form action="{% url 'market:store_comment' store.market_list_id store.id %}">
+
+                                <div>
+                                    <input type="radio" id="contactChoice1"
+                                           name="score" value="1">
+                                    <label for="contactChoice1">1</label>
+
+                                    <input type="radio" id="contactChoice2"
+                                           name="score" value="2">
+                                    <label for="contactChoice2">2</label>
+
+                                    <input type="radio" id="contactChoice3"
+                                           name="score" value="3" checked>
+                                    <label for="contactChoice3">3</label>
+
+                                    <input type="radio" id="contactChoice4"
+                                           name="score" value="4">
+                                    <label for="contactChoice4">4</label>
+
+                                    <input type="radio" id="contactChoice5"
+                                           name="score" value="5">
+                                    <label for="contactChoice5">5</label>
+
+
+                                </div>
+                                <textarea name="comments" style="resize:none;"></textarea>
+
+                                <button type="submit" style="color:black;">댓글등록</button>
+                            </form>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>            <!--              2번째 카드 끝-->
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

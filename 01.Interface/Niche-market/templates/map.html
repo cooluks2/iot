@@ -1,0 +1,208 @@
+<style>
+
+.content {
+        text-align: center;
+        height: 90%;
+        width: 90%;
+        overflow-y: scroll;
+          -ms-overflow-style: none;  /* IE and Edge */
+           scrollbar-width: none;  /* Firefox */
+    }
+.content::-webkit-scrollbar {
+         display: none;
+    }
+.content2 {
+        text-align: left;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+          -ms-overflow-style: none;  /* IE and Edge */
+           scrollbar-width: none;  /* Firefox */
+    }
+.content2::-webkit-scrollbar {
+         display: none;
+    }
+
+.map_wrap {position:relative;width:100%;height:350px;}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+
+.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+
+</style>
+
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;border-radius:10px;"></div>
+</div>
+
+<!--지도용 script 추가-->
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=672f1dc7e3016f169ace1e986e9d359c&libraries=services,clusterer,drawing"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    mapOption = {
+        center: new kakao.maps.LatLng(37.560169, 127.013433), // 지도의 중심좌표(청구역)
+        level: 8, // 지도의 확대 레벨(서울 다보이게)
+        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+    };
+
+// 지도를 생성한다
+var map = new kakao.maps.Map(mapContainer, mapOption);
+
+// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+var mapTypeControl = new kakao.maps.MapTypeControl();
+
+// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+
+// 마커 클러스터러를 생성합니다
+var clusterer = new kakao.maps.MarkerClusterer({
+    map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+    averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+    minLevel: 6 // 클러스터 할 최소 지도 레벨
+});
+
+/*
+// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 (이거 빼면 현위치 없앨 수 있어용)
+if (navigator.geolocation) {
+
+    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+
+        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+            message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용입니다
+
+        // 마커와 인포윈도우를 표시합니다
+        displayMarker(locPosition, message);
+
+    });
+
+    // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+    function displayMarker(locPosition, message) {
+
+        // 마커를 생성합니다
+        var marker_present = new kakao.maps.Marker({
+            map: map,
+            position: locPosition
+        });
+
+        var iwContent = message, // 인포윈도우에 표시할 내용
+            iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content : iwContent,
+            removable : iwRemoveable
+        });
+
+        // 인포윈도우를 마커위에 표시합니다
+        infowindow.open(map, marker_present);
+
+        // 지도 중심좌표를 접속위치로 변경합니다
+        map.setCenter(locPosition);
+    }
+
+}
+*/
+
+
+var markers = []; // 마커용 빈리스트 생성
+var infos = []; // 클릭용 인포 배열 만들어서 하나의 인포만 뜨게 작업용 빈리스트
+
+var positions = [
+    {% for m in market_list %}
+    {
+        content: [
+'<div style="padding:5px; text-align:center;" class="target1">',
+'   <a href="{% url 'market:market' m.id %}"  font-size:1.2rem;">',
+'      {{m.market_name}}</a><br>',
+'      <div style="text-align:center;font-size:0.8rem;">{{m.address|linebreaks}}</div>',
+'<a href="https://map.kakao.com/link/map/{{m.market_name}},{{m.latitude}},{{m.longitude}}" style="color:blue" target="_blank">큰지도보기</a> | <a href="https://map.kakao.com/link/to/{{m.market_name}},{{m.latitude}},{{m.longitude}}" style="color:blue" target="_blank">길찾기</a>',
+'</div>'
+].join(''),
+        latlng: new kakao.maps.LatLng({{m.latitude}}, {{m.longitude}})
+    },
+    {% endfor %}
+];
+
+
+// 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        closeInfoWindow();
+        infowindow.open(map, marker);
+    };
+}
+
+// 인포윈도우를 닫는 클로저를 만드는 함수입니다
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+// 모든 인포 윈도우를 닫는 클로저
+function closeInfoWindow() {
+    for(var idx=0; idx<infos.length; idx++){
+        infos[idx].close();
+    }
+}
+
+
+
+
+
+for(var i=0;i<positions.length;i++){
+    // 마커가 표시될 위치입니다
+    var markerPosition  = positions[i].latlng;
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition,
+        clickable: true
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+    var iwContent = positions[i].content;
+    iwPosition = markerPosition //인포윈도우 표시 위치입니다
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        position : iwPosition,
+        content : iwContent,
+        removable : true
+    });
+
+
+    markers.push(marker);
+    infos.push(infowindow);
+
+
+    kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
+    //kakao.maps.event.addListener(marker, 'click', makeOutListener(infowindow));
+    //kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+
+
+}
+
+// 클러스터러에 마커들을 추가합니다
+clusterer.addMarkers(markers);
+
+
+
+</script>

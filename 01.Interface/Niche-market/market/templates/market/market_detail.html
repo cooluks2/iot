@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}시장소개{% endblock %}
+
+{% block content %}
+
+<style>
+    .content {
+        text-align: center;
+        height: 70%;
+        width: 70%;
+        overflow-y: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+        .content::-webkit-scrollbar {
+         display: none;
+    }
+
+    .container-wrap>.container .row {
+        background: #ff0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .container>.row {
+        background: #FF0000;
+
+    }
+
+    .container-wrap>.blank {
+        height: 3px;
+        width: 1px;
+        background: #B2EBF4;
+    }
+
+
+.card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+
+.card > .card-inner {
+  padding:10px;
+}
+.card .header h2, h3 {
+  margin-bottom: 0px;
+  margin-top:0px;
+}
+.card .header {
+  margin-bottom:5px;
+}
+.card img{
+  width:100%;
+}
+
+
+
+</style>
+
+<div class="content hn">
+    <div class="container-fluid">
+        <div class="row">
+            <!--              1번째 카드-->
+            <div class="col-sm-4">
+                <div class="card border-0" style="background-color:rgba(38,94,171,0); box-shadow:none;">
+                    <div class="image">
+                        <!--첨부파일이 없으면 기본 이미지 있으면 대표사진-->
+                        {% if market.files.get.id %}
+                        <img src="{% url 'market:market_download' market.files.get.id %}">
+                        {% else %}
+                        <img class="card-img-top" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg">
+                        {% endif %}
+                        <!--첨부파일이 없으면 기본 이미지 있으면 대표사진 여기까지-->
+                    </div>
+                    <div class="card-inner">
+                        <div class="header">
+                            <h2>{{market.market_name}}</h2>
+                        </div>
+                        <div>
+                            <div class="text-right">
+<!--                                권한 추가시 표시할 부분-->
+                                {% if market.owner == user %}
+                                <a href="{% url 'market:market_update' market.id %}" class="mr-3">
+                                    <i class="far fa-edit"></i> 수정</a>
+                                <a href="{% url 'market:market_delete' market.id %}" class="text-danger mr-3">
+                                    <i class="fas fa-trash"></i> 삭제</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--              1번째 카드 끝-->
+            <!--              2번째 카드-->
+            <div class="col-sm-8">
+                <div class="card" style="background-color:rgba(50,100,180,0.6); color:white;">
+                    <div class="card-inner">
+                        <div class="card-header card-header-success" style="text-align:left;">
+                        <i class="fas fa-sign-in-alt"></i><span class="hn"> 시장 정보</span></div>
+                    <div class="card-body table-responsive" style="padding-top:2px;">
+                        <table class="table table-hover" style="margin-bottom:2px;">
+                            <tbody>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">주소</td><td style="padding:0.2rem;width:70%;">{{market.address}}</td></tr>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">전화번호</td><td style="padding:0.2rem;width:70%;">{{market.tel}}</td></tr>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">영업시간</td><td style="padding:0.2rem;width:70%;">{{market.hour_info}}</td></tr>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">휴무일</td><td style="padding:0.2rem;width:70%;">{{market.closed_date}}</td></tr>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">판매품목</td><td style="padding:0.2rem;width:70%;">{{market.products}}</td></tr>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">주차여부</td><td style="padding:0.2rem;width:70%;">{{market.park_info}}</td></tr>
+                                <tr style="color:white;"><td style="padding:0.2rem;width:30%;">주변 관광지</td><td style="padding:0.2rem;width:70%;">{{market.sights_info}}</td></tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>            <!--              2번째 카드 끝-->
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% block extra-style %}
+<style type="text/css">
+	@media (min-width: 992px){
+		.dropdown-menu .dropdown-toggle:after{
+			border-top: .3em solid transparent;
+		    border-right: 0;
+		    border-bottom: .3em solid transparent;
+		    border-left: .3em solid;
+		}
+
+		.dropdown-menu .dropdown-menu{
+			margin-left:0; margin-right: 0;
+		}
+
+		.dropdown-menu li{
+			position: relative;
+		}
+		.nav-item .submenu{
+			display: none;
+			position: absolute;
+			left:100%; top:-7px;
+		}
+		.nav-item .submenu-left{
+			right:100%; left:auto;
+		}
+
+		.dropdown-menu > li:hover{ background-color: #f1f1f1 }
+		.dropdown-menu > li:hover > .submenu{
+			display: block;
+		}
+	}
+
+
+
+</style>
+{% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic">Niche Market</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item mx-1 btn btn-primary">
+                <a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item mx-1 btn btn-primary">
+                <a class="nav-link text-white" href="">게시판</a></li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> 점포안내 </a>
+                <ul class="dropdown-menu">
+                    {% for i in location %}
+                    <li><a class="dropdown-item dropdown-toggle" href="#"> {{i.location}} </a>
+                        <ul class="submenu dropdown-menu">
+                            {% for x in market_list %}
+                            {% if x.location_id == i.id %}
+                            <li><a class="dropdown-item" href="{% url 'market:market' x.id %}">{{x.market_name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="nav-item mx-1 btn btn-primary">
+                <a class="nav-link text-white" href="{% url 'market:market_add' %}">시장추가</a></li>
+
+            <li class="nav-item mx-1 btn btn-primary">
+                <a class="nav-link text-white"
+                   href="">로그인</a></li>
+
+
+
+        </ul>
+        <form class="form-inline my-2" action="" method="post"> {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search"
+                   placeholder="global search" name="search_word">
+        </form>
+    </div>
+</nav>
+

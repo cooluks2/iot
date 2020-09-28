@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}store_detail.html{% endblock %}
+
+{% block content %}
+<style>
+.content {
+text-align: center;
+height: 55%;
+width: 50%;
+color:black;
+font-size:1.5em
+}
+::placeholder {
+color:#000;
+font-size:1.1em;
+}
+
+.form-group{
+font-weight: bold;
+font-size:1.1em;
+}
+
+div.center {
+width: 100%;
+float: center;
+}
+
+select {
+display: black;
+}
+
+textarea {
+width:100%;
+height: 13rem;
+resize:none;
+}
+
+</style>
+<div class="content">
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1 style="font-weight:bold;">공지사항 작성 - {{user}}</h1>
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <div class="font-weight-bold">
+                {{ form.errors }}
+            </div>
+        </div>
+        {% endif %}
+        <div class="center">
+            <div class="form-group row">
+                제목 {{ form.title }}
+            </div>
+            <div class="form-group row">
+                내용 : {{ form.content }}
+            </div>
+            <div class="form-group row">
+                <input type="submit" value="제출" class="btn btn-info"/>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

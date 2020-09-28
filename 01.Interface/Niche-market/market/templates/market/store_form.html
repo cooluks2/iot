@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}store_form.html{% endblock %}
+{% block content %}
+<style>
+.content {
+text-align: center;
+height: 55%;
+width: 50%;
+}
+::placeholder {
+color:#000;
+font-size:1.1em;
+}
+
+.form-group{
+font-weight: bold;
+font-size:1.1em;
+}
+
+div.left {
+width: 50%;
+float: left;
+padding: 1em;
+}
+div.right{
+width: 50%;
+float: right;
+padding: 1em;
+}
+select {
+display: block;
+}
+
+
+</style>
+
+<div class="content hn">
+
+
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1 style="font-weight:bold;">점포추가 - {{user}}</h1>
+
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <div class="font-weight-bold">
+                {{ form.errors }}
+
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="left">
+
+            <div class="form-group">
+                {{ form.store_name|attr:"autofocus"|attr:"placeholder=상호명" }}
+            </div>
+
+            <div class="form-group">
+                {{ form.store_introduction|attr:"placeholder=점포소개" }}
+            </div>
+
+            <div class="form-group">
+                {{ form.open_hour|add_class:"form-control" }}
+            </div>
+
+            <div class="form-group">
+                {{ form.close_hour|add_class:"form-control" }}
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="form-group">
+                {{ form.hour_information| attr:"placeholder=휴무일"}}
+            </div>
+
+            <div class="form-group">
+                <div>
+                    {% for file in store.files.all %}
+                    <input type="checkbox" name="delete_files" value="{{file.id}}" checked>
+                    {{file.filename}}
+                    <br>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="files" class="col-form-label col-sm-2 ml-3 font-weight-bold"> </label>
+                <div class="col-sm-8 ">
+                    <input type="file" id="files" name="files">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="offset-sm-2 col-sm-5">
+                    <input type="submit" value="Submit" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

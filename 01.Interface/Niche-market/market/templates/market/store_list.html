@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}점포목록{% endblock %}
+{% block content %}
+<style>
+.content {
+text-align: center;
+height: 60%;
+width: 50%;
+}
+.table{
+font-size:1.2em;
+
+}
+td{
+text-align:center;
+}
+#store:hover tbody tr:hover td {
+background: rgba(255,255,255,0.5);
+color:white;
+}
+
+</style>
+
+
+<div class="content hn">
+    <div class="row">
+        <!--              2번째 열 2번째 카드 시작-->
+        <div class="col-lg-12">
+            <div class="card" style="background-color:rgba(40,200,250,0.6);">
+                <div class="card-header card-header-success" style="text-align: left;"></div>
+
+                <div class="card-body table-responsive" style="padding-top:0;">
+                    <table id="store" class="table table-hover" style="margin-bottom:0;">
+                        <thead class="text-dark">
+                        <th>점포명</th>
+                        <th>오픈시간</th>
+                        <th>종료시간</th>
+                        </thead>
+
+                        <tbody>
+                        {% for store in boards %}
+                        <tr onclick="location.href='/market/store/{{store.market_list.id}}/{{store.id}}'">
+                            <td>{{store.store_name}}</td>
+                            <td>{{store.open_hour}}</td>
+                            <td>{{store.close_hour}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% if user.is_staff %}
+                    <div class="text-right mr-3">
+                        <a href="{% url 'market:store_add' market_fk%}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i> 추가</a>
+                    </div>
+                    {% endif %}
+                    <ul class="pagination justify-content-center">
+                        {% if boards.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?p={{boards.previous_page_number}}">이전</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link disabled" href="#">이전</a>
+                        </li>
+                        {% endif %}
+
+                        <li class="page-item active">
+                            <a class="page-link">{{boards.number}}/{{boards.paginator.num_pages}}</a>
+                        </li>
+
+                        {% if boards.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?p={{boards.next_page_number}}">다음</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link disabled" href="#">다음</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+        <!--              2번째 열 2번째 카드 끝-->
+    </div>
+
+</div>
+{% endblock %}
