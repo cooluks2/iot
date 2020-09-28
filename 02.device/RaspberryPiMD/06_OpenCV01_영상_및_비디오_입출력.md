@@ -42,7 +42,7 @@ code로 열기 > F1 > Python : Select Interpreter > C:\Users\coolu\anaconda3\env
 
 ### 영상 입출력 메서드
 
-![image-20200928111520975](06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928111520975.png)
+![image-20200928111520975](06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928111520975.png)
 
 <br>
 
@@ -81,7 +81,7 @@ cv2.destroyAllWindows()
 
 (512, 512, 3) (512, 512)
 
-<img src="06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928113301107.png" alt="image-20200928113301107" style="zoom:50%;" />
+<img src="06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928113301107.png" alt="image-20200928113301107" style="zoom:50%;" />
 
 ---
 
@@ -147,11 +147,11 @@ plt.imshow(img_rgb)
 plt.show()
 ```
 
-![image-20200928114511013](06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928114511013.png)
+![image-20200928114511013](06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928114511013.png)
 
 >   OpenCV는 BGR 순이라 색이 이상하게 보인다.
 
-![image-20200928114703776](06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928114703776.png)
+![image-20200928114703776](06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928114703776.png)
 
 >   cvtColor 이용하여 RGB로 변경
 
@@ -165,11 +165,11 @@ plt.show()
 
 ### 비디오 관련 메서드
 
-![image-20200928130439433](06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928130439433.png)
+![image-20200928130439433](06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928130439433.png)
 
 ###  property_id 주요 상수
 
-![image-20200928130503648](06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928130503648.png)
+![image-20200928130503648](06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928130503648.png)
 
 <br>
 
@@ -261,7 +261,7 @@ cv2.destroyAllWindows()
 
 ### 비디오 파일 녹화
 
-![image-20200928132228454](06._OpenCV01_영상_및_비디오_입출력.assets/image-20200928132228454.png)
+![image-20200928132228454](06_OpenCV01_영상_및_비디오_입출력.assets/image-20200928132228454.png)
 
 -   fourcc
     -   ***'PIM1'** MPEG-1
@@ -280,7 +280,7 @@ cv_ex06.py
 ```python
 import cv2
 
-cap = cv2.VideoCapture(1)  # 1번 카메라
+cap = cv2.VideoCapture(0)  # 0번 카메라
 
 frame_size = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
               int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
@@ -291,7 +291,7 @@ fourcc = cv2.VideoWriter_fourcc(*'XVID')
 
 out1 = cv2.VideoWriter('./data/record0.mp4', fourcc, 20.0, frame_size)
 out2 = cv2.VideoWriter('./data/record1.mp4', fourcc, 20.0, frame_size,
-                       isColor=FALSE)
+                       isColor=False)
 
 while True:
     retval, frame = cap.read()  # 프레임 캡처
@@ -320,3 +320,5 @@ cv2.destroyAllWindows()
 흑백 비디오 : ./data/record1.mp4  생성
 
 <br>
+
+>   오디오는 기록 되지 않는다.
