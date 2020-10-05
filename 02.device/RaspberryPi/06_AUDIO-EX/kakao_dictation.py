@@ -9,17 +9,21 @@ headers = {
     "X-DSS-Service": "DICTATION",
     "Authorization": "KakaoAK " + rest_api_key,
 }
-with open('heykakao.wav', 'rb') as fp:
-    audio = fp.read()
 
-res = requests.post(kakao_speech_url, headers=headers, data=audio)
 
-print(res.text)
+def dictation(audio):
+    res = requests.post(kakao_speech_url, headers=headers, data=audio)
 
-result_json_string = res.text[
-	res.text.index('{"type":"finalResult"'):res.text.rindex('}')+1
-]
+    result_json_string = res.text[
+                         res.text.index('{"type":"finalResult"'):res.text.rindex('}') + 1
+                         ]
 
-result = json.loads(result_json_string)
-print(result)
-print(result['value'])
+    result = json.loads(result_json_string)
+    return result['value']
+
+
+if __name__ == "__main__":
+    with open('heykakao.wav', 'rb') as fp:
+        audio = fp.read()
+        result = dictation(audio)
+        print(result)
