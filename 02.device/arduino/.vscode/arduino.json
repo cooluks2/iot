@@ -1,5 +1,6 @@
 {
-    "sketch": "chapter6/ex03/app.ino",
-    "board": "arduino:avr:uno",
-    "port": "COM6"
+    "sketch": "chapter6/bt_controller/app.ino",
+    "board": "arduino:avr:pro",
+    "port": "COM7",
+    "configuration": "cpu=16MHzatmega328"
 }
