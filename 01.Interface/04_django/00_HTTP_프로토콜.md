@@ -2,9 +2,9 @@
 
 <br>
 
-## HTTP 클라이언트와 서버
+### HTTP 클라이언트와 서버
 
-### Http 프로토콜
+**Http 프로토콜**
 
 -   주요 특징
     -   문자 기반 프로토콜 
@@ -21,7 +21,7 @@
 
 <br>
 
-### HTTP Request : 요청
+**HTTP Request : 요청**
 
 -   요청 라인(Request Line) 
     -   HTTP 메서드 방식 및 요청 URL과 프로토콜 정보 
@@ -34,7 +34,7 @@
 
 <br>
 
-### HTTP Response : 응답
+**HTTP Response : 응답**
 
 -   상태 라인
     -   응답 상태 코드 및 프로토콜 정보
@@ -47,13 +47,13 @@
 
 <br>
 
-### WEB 서버와 WAS
+**WEB 서버와 WAS**
 
 ![image-20200924145206939](00_HTTP_프로토콜.assets/image-20200924145206939.png)
 
 <br>
 
-### URL
+**URL**
 
 ![image-20200924145221260](00_HTTP_프로토콜.assets/image-20200924145221260.png)
 

@@ -2,9 +2,9 @@
 
 <br>
 
-## Bookmark 앱
+### Bookmark 앱
 
-### 작업 순서
+**작업 순서**
 
 -   프로젝트 뼈대 만들기 
     -   프로젝트 및 앱 개발에 필요한 디렉토리와 파일 생성 
@@ -23,7 +23,7 @@
 
 <br>
 
-### settings.py 주요 사항
+**settings.py 주요 사항**
 
 -   프로젝트 설정 파일
 -   필수 항목
@@ -35,13 +35,13 @@
 
 <br>
 
-### 화면 UI
+**화면 UI**
 
 ![image-20200924150832262](02_실전_프로그램_개발-Bookmark_앱.assets/image-20200924150832262.png)
 
 <br>
 
-### 테이블 설계
+**테이블 설계**
 
 -   Bookmark 모델 클래스
 
@@ -49,7 +49,7 @@
 
 <br>
 
-### 로직 설계
+**로직 설계**
 
 -   처리 흐름을 설계
 -   로직 : URL을 받아 최종 HTML 템플릿 파일을 만드는 과정
@@ -58,7 +58,7 @@
 
 <br>
 
-### URL 설계
+**URL 설계**
 
 -   URLconf 코딩에 반영
 -   urls.py 파일
@@ -68,7 +68,7 @@
 
 <br>
 
-### 작업순서
+**작업순서**
 
 ![image-20200924151018850](02_실전_프로그램_개발-Bookmark_앱.assets/image-20200924151018850.png)
 
@@ -76,15 +76,15 @@
 
 <br>
 
-## 프로젝트 뼈대 만들기
+### 프로젝트 뼈대 만들기
 
-### 프로젝트 만들기
+**프로젝트 만들기**
 
 ![image-20200924151106589](02_실전_프로그램_개발-Bookmark_앱.assets/image-20200924151106589.png)
 
 <br>
 
-### mysite/settings.py
+**mysite/settings.py**
 
 ```python
 import os
@@ -172,7 +172,7 @@ STATIC_URL = '/static/'
 
 <br>
 
-### settings.py 수정
+**settings.py 수정**
 
 -   DATABASE 
     -   SQLite3 → MariaDB 설정으로 변경 
@@ -209,7 +209,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 <br>
 
-### urls.py
+**urls.py**
 
 ```python
 from django.contrib import admin
@@ -232,7 +232,7 @@ urlpatterns = [
 
 <br>
 
-### 기본 테이블 생성
+**기본 테이블 생성**
 
 -   django 애플리케이션 생성시 사용자 관리 테이블 및 모델 기본 제공
 -   데이터베이스에 사용자 관리 테이블 생성 작업 필요
@@ -241,7 +241,7 @@ $ `python manage.py migrate`
 
 <br>
 
-###  admin 계정 생성
+**admin 계정 생성**
 
 $ `python manage.py createsuperuser`
 
@@ -269,9 +269,9 @@ Superuser created successfully.
 
 <br>
 
-## bookmark 애플리케이션 생성
+### bookmark 애플리케이션 생성
 
-### 애플리케이션 생성
+**애플리케이션 생성**
 
 -   python manage.py startapp <애플리케이션 명>
     -   애플리케이션명 디렉토리 생성
@@ -282,7 +282,7 @@ Superuser created successfully.
 
 <br>
 
-### apps.py
+**apps.py**
 
 ```python
 from django.apps import AppConfig
@@ -296,7 +296,7 @@ class BookmarkConfig(AppConfig):
 
 <br>
 
-### mysite/settings.py
+**mysite/settings.py**
 
 ```python
 INSTALLED_APPS = [ 
@@ -312,7 +312,7 @@ INSTALLED_APPS = [
 
 <br>
 
-### 모델 정의(테이블 정의)
+**모델 정의(테이블 정의)**
 
 -   django.db.models.Model을 상속 받아 정의
 -   클래스 필드(컬럼 정의)
@@ -335,7 +335,7 @@ INSTALLED_APPS = [
 
 <br>
 
-###  bookmark/models.py
+**bookmark/models.py**
 
 ```python
 from django.db import models
@@ -361,13 +361,13 @@ class Bookmark(models.Model):
 
 <br>
 
-### Admin 사이트내 테이블 반영
+**Admin 사이트내 테이블 반영**
 
 -    models.py 파일에 정의한 모델(테이블)을 Admin 사이트에 보이도록 등록
 
 <br>
 
-### bookmark/admin.py
+**bookmark/admin.py**
 
 ```python
 from django.contrib import admin
@@ -382,7 +382,7 @@ class BookmarkAdmin(admin.ModelAdmin):
 
 <br>
 
-### 데이터베이스 변경 반영
+**데이터베이스 변경 반영**
 
 $ `python manage.py makemigrations bookmark`
 
@@ -392,7 +392,7 @@ $ `python manage.py migrate`
 
 <br>
 
-### 서버 기동
+**서버 기동**
 
 $ `python manage.py runserver`
 
@@ -400,7 +400,7 @@ $ `python manage.py runserver 3000` # 포트 변경시
 
 <br>
 
-### http://localhost:8000/admin/
+**http://localhost:8000/admin/**
 
 -   admin 로그인 필요
 
@@ -416,9 +416,9 @@ $ `python manage.py runserver 3000` # 포트 변경시
 
 <br>
 
-## 개발 코딩하기 - 뷰
+### 개발 코딩하기 - 뷰
 
-### bookmark/views.py
+**bookmark/views.py**
 
 ```python
 from django.shortcuts import render
@@ -469,9 +469,9 @@ class BookmarkDV(DetailView):  # 하나를 자세히 : .get()
 
 <br>
 
-## 개발 코딩하기 - 템플릿
+### 개발 코딩하기 - 템플릿
 
-### 컨텍스트
+**컨텍스트**
 
 -   뷰에서 템플릿으로 전달하는 사전 
 -   이 사전에 저장된 키(컨텍스트 변수)-값 쌍을 템플릿에서 이용 
@@ -486,7 +486,7 @@ class BookmarkDV(DetailView):  # 하나를 자세히 : .get()
 
 <br>
 
-### 디폴트 템플릿 파일 경로
+**디폴트 템플릿 파일 경로**
 
 -   ListView
     -   templates/<앱명칭>/모델명_list.html
@@ -496,7 +496,7 @@ class BookmarkDV(DetailView):  # 하나를 자세히 : .get()
 
 <br>
 
-### 템플릿 파일 경로 검색 순서
+**템플릿 파일 경로 검색 순서**
 
 -   settings.py에 정의된
     -   TEMPLATES.DIR
@@ -504,7 +504,7 @@ class BookmarkDV(DetailView):  # 하나를 자세히 : .get()
 
 <br>
 
-### bookmark/templates/bookmark/bookmark_list.html
+**bookmark/templates/bookmark/bookmark_list.html**
 
 ```html
 <div>
@@ -527,7 +527,7 @@ class BookmarkDV(DetailView):  # 하나를 자세히 : .get()
 
 <br>
 
-### bookmark/templates/bookmark/bookmark_detail.html
+**bookmark/templates/bookmark/bookmark_detail.html**
 
 ```html
 <div>
@@ -543,7 +543,7 @@ class BookmarkDV(DetailView):  # 하나를 자세히 : .get()
 
 <br>
 
-### mysite/urls.py
+**mysite/urls.py**
 
 ```python
 from django.contrib import admin
@@ -565,7 +565,7 @@ urlpatterns = [
 
 <br>
 
-## ArchiveView
+### ArchiveView
 
 -   날짜 필드로 필터링
 -   년도별/월별/일별/오늘 목록 얻을 때 사용
@@ -578,9 +578,9 @@ urlpatterns = [
 
 <br>
 
-## 개발 코딩하기 - 뷰
+### 개발 코딩하기 - 뷰
 
-### bookmark/views.py
+**bookmark/views.py**
 
 ```python
 from django.views.generic import ListvView, DetailView
@@ -613,9 +613,9 @@ class PostTAV(TodayArchiveView):
 
 <br>
 
-## 개발 코딩하기 - URLConf
+### 개발 코딩하기 - URLConf
 
-### blog/urls.py
+**blog/urls.py**
 
 ```python
  :
@@ -640,9 +640,9 @@ path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
 
 <br>
 
-## 개발 코딩하기 - 템플릿
+### 개발 코딩하기 - 템플릿
 
-### bookmark/templates/bookmark/post_archive.html
+**bookmark/templates/bookmark/post_archive.html**
 
 ```html
 <h1>Post Archives until {% now "N d, Y" %}</h1>
@@ -668,7 +668,7 @@ path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
 
 <br>
 
-### bookmark/templates/bookmark/post_archive_year.html
+**bookmark/templates/bookmark/post_archive_year.html**
 
 ```html
 <h1>Post Archives for {{ year|date:"Y" }}</h1>
@@ -695,7 +695,7 @@ path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
 
 <br>
 
-### bookmark/templates/bookmark/post_archive_month.html
+**bookmark/templates/bookmark/post_archive_month.html**
 
 ```html
 <h1>Post Archives for {{ month|date:"N, Y" }}</h1>
@@ -713,7 +713,7 @@ path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
 
 <br>
 
-### bookmark/templates/bookmark/post_archive_day.html
+**bookmark/templates/bookmark/post_archive_day.html**
 
 ```html
 <h1>Post Archives for {{ day|date:"N d, Y" }}</h1>
@@ -731,7 +731,7 @@ path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
 
 <br>
 
-###  bookmark/templates/bookmark/post_archive_today.html
+**bookmark/templates/bookmark/post_archive_today.html**
 
 ```html
 <h1>Post Archives for {{ day|date:"N d, Y" }}</h1>
