@@ -4,8 +4,8 @@
 
 -   MongoDB for VSCode 확장팩
     -   CONNECTIONS > Create New Playground > `use('testDB');`
--   Azure Cosmos DB 확장팩
--   Robomongo 
+-   Azure Cosmos DB 확장팩 (선택)
+-   Robomongo
     -   https://robomongo.org/download
     -   Simple GUI for beginners > portable version
 
