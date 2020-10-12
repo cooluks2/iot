@@ -1,0 +1,4 @@
+use('testDB');
+
+db.myCollection.insertOne({x:1});
+db.myCollection.insertOne({x:2, name: "hong"});
