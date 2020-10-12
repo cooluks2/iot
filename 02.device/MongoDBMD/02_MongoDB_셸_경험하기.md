@@ -156,6 +156,40 @@
 
 <br>
 
+```shell
+use board
+
+freeboard_result = db.board.insertOne({name: "자유게시판"})
+
+freeboard_id = freeboard_result.insertedId
+
+db.article.insertMany([
+    {
+        board_id: freeboard_id,
+        title: 'hello',
+        content: 'hi, hello1'
+    },
+    {
+        board_id: freeboard_id,
+        title: 'hi',
+        content: 'hi, hello2',
+        author: 'Jeong'
+    }
+])
+    
+db.article.insertOne({
+    board_id: freeboard_id,
+    title: 'hi',
+    content: 'hi, hello3',
+    author: 'Hong',
+    comments: [
+        {author: 'Karoid', content: 'hello Hong!'}
+    ]
+})
+```
+
+
+
 <br>
 
 <br>
