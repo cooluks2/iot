@@ -366,3 +366,5 @@ except Exception as err:
 >   Subscriber + Publisher 동시 실행 시 2초 간격으로 MongoDB에 값이 저장
 
 <br>
+
+방화벽 : mongod.exe 새 인바운드 규칙 설정
