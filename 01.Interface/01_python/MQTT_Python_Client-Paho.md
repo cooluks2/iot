@@ -6,8 +6,8 @@
 
 -   MQTT Python Client 모듈
 -   설치
-    -   `sudo pip3 install paho-mqtt`
-    -   `pip install paho-mqtt`
+    -   $ `sudo pip3 install paho-mqtt`
+    -   \> `pip install paho-mqtt`
 -   api 문서
     -   https://www.eclipse.org/paho/clients/python/docs/
 

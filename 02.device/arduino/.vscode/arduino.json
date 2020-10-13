@@ -1,5 +1,5 @@
 {
-    "sketch": "chapter7/car/app.ino",
+    "sketch": "chapter7/mqtt/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM6"
 }
