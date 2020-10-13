@@ -358,3 +358,65 @@ for x in slist:
     print(x)
 ```
 
+
+
+**아이피로 접근**
+
+C:\Program Files\MongoDB\Server\4.4\bin\mongod.cfg
+
+```shell
+# mongod.conf
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+# Where and how to store data.
+storage:
+  # dbPath: %MONGO_DATA_PATH%
+  dbPath: c:\data\db
+  journal:
+    enabled: true
+#  engine:
+#  mmapv1:
+#  wiredTiger:
+
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  # path:  %MONGO_LOG_PATH%\mongod.log
+  path:  c:\data\log\mongod.log
+
+# network interfaces
+net:
+  port: 27017
+  # bindIp: 127.0.0.1
+  bindIp: 0.0.0.0
+
+
+#processManagement:
+
+#security:
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options:
+
+#auditLog:
+
+#snmp:
+```
+
+>   C:\data\log 디렉토리까지 만들어준다.
+>
+>   **적용**
+>
+>   C:\Program Files\MongoDB\Server\4.4\bin\
+>
+>   Shift + 마우스 오른쪽 > PowerShell
+>
+>   \> `mongod --config mongod.cfg`

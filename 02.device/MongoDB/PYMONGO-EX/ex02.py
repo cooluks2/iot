@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from datetime import datetime
 import random
 
-db_client = MongoClient("mongodb://localhost:27017/")
+db_client = MongoClient("mongodb://192.168.0.11:27017/")
 
 iot_db = db_client['iot_service']  # 데이터베이스 선택, 없으면 자동 생성
 sensors_col = iot_db['sensors']  # 컬렉션 선택, 없으면 자동 생성
