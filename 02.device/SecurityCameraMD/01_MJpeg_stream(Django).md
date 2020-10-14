@@ -214,6 +214,8 @@ def mjpeg_stream(request):
 
 <br>
 
+<br>
+
 **jpg.tobyes() 에 .tobytes()가 없으면**
 
 -   \> `python manage.py shell`
@@ -237,3 +239,107 @@ array([[255],
 >   Bytes로 변환해야한다.
 
 <br>
+
+<br>
+
+### 라즈베리파이
+
+iot_web_service 디렉토리 라즈베리파이로 이동
+
+-   **.bashrc**
+
+    `export PATH=.:$PATH:/home/pi/.local/bin` 추가
+
+-   $ `pip install django`
+
+-   $ `source ~/.bashrc`
+
+<br>
+
+**mysite/settings.py**
+
+```python
+ALLOWED_HOSTS = ['192.168.0.10', '127.0.0.1', 'localhost']
+```
+
+<br>
+
+**실행**
+
+-   $ `python manage.py runserver 0.0.0.0:8000`
+
+-   http://192.168.0.10:8000/mjpeg/
+
+<img src="01_MJpeg_stream(Django).assets/image-20201014094237777.png" alt="image-20201014094237777" style="zoom:50%;" />  
+
+<br>
+
+<br>
+
+### PiCam 모듈 사용
+
+**mysite/picam.py**
+
+```python
+import cv2
+import io
+import time
+import numpy as np
+from picamera.array import PiRGBArray
+from picamera import PiCamera
+
+class PiCam:
+    def __init__(self, show=True, framerate=25, width=640, height=480):
+        self.size = (width, height)
+        self.show = show
+        self.framerate = framerate
+
+        self.camera = PiCamera()
+        self.camera.rotation = 180
+        self.camera.resolution = self.size
+        self.camera.framerate = self.framerate
+
+
+    def snapshot(self):
+        frame = io.BytesIO()
+        self.camera.capture(frame, 'jpeg',use_video_port=True)
+        frame.seek(0)
+        return frame.getvalue()
+
+
+class MJpegStreamCam(PiCam):
+    def __init__(self, show=True, framerate=25, width=640, height=480):
+        super().__init__(show=show, framerate=framerate, width=width, height=height)
+
+    def __iter__(self): 
+        frame = io.BytesIO()
+        while True:
+            self.camera.capture(frame, 'jpeg',use_video_port=True)
+            image = frame.getvalue()
+            yield (
+                b'--myboundary\n'
+                b'Content-Type:image/jpeg\n'
+                b'Content-Length: ' + f"{len(image)}".encode() + b'\n'
+                b'\n' + image + b'\n')
+            frame.seek(0)  # 읽기 쓰기 위치를 맨 앞으로 (기존 데이터 남아있음)
+```
+
+<br>
+
+**mjpeg/views.py**
+
+```python
+from django.views.generic import View, TemplateView
+from django.http import HttpResponse, StreamingHttpResponse
+# from mysite.usbcam import MJpegStreamCam
+from mysite.picam import MJpegStreamCam
+```
+
+<br>
+
+**실행**
+
+<img src="01_MJpeg_stream(Django).assets/image-20201014102713349.png" alt="image-20201014102713349" style="zoom:50%;" />  
+
+
+
