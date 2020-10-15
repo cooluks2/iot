@@ -25,7 +25,7 @@ SECRET_KEY = 'naoo$yx)b)=c__x63!az+edm70kn(%p#zwoff47+vn^ffh1yc_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.11', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['192.168.0.10', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mjpeg.apps.MjpegConfig',
+    'kakao.apps.KakaoConfig',
 
 ]
 

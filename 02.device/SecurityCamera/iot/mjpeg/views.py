@@ -1,6 +1,7 @@
 from django.views.generic import View, TemplateView
 from django.http import HttpResponse, StreamingHttpResponse
-from mysite.usbcam import MJpegStreamCam
+# from mysite.usbcam import MJpegStreamCam
+from mysite.picam import MJpegStreamCam
 
 mjpegstream = MJpegStreamCam()
 
