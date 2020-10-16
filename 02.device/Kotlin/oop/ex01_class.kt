@@ -18,7 +18,7 @@ class TestClass{
 // kotlin에서는 기본적으로 상속이 거부되어 있다.
 // 선조클래스를 open으로 지정해야 한다.
 open class ParentClass {
-    var name : String = this.toString();
+    var name : String = this.toString(); // __str__(self)와 같다.
     fun getMyName() : String = name;
 }
 
@@ -33,7 +33,7 @@ fun main(args : Array<String>){
 
     var obj3 = ParentClass();
     println( obj3.getMyName() );
-    
+
     var obj4 = ChildClass();
     println( obj4.getMyName() );
 }
