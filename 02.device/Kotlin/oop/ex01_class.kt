@@ -1,18 +1,3 @@
-# Kotlin 객체지향 프로그래밍
-
-### 클래스와 상속
-
-![image-20201016103541721](02_Kotlin_객체지향_프로그래밍.assets/image-20201016103541721.png)  
-
-
-
-![image-20201016103614551](02_Kotlin_객체지향_프로그래밍.assets/image-20201016103614551.png)  
-
-<br>
-
-**ex01_class.kt**
-
-```kotlin
 package oop
 
 // class passwd(변수명: 데이터형, ..){} 으로 생성자를 만들어쓰기도 한다.
@@ -33,7 +18,7 @@ class TestClass{
 // kotlin에서는 기본적으로 상속이 거부되어 있다.
 // 선조클래스를 open으로 지정해야 한다.
 open class ParentClass {
-    var name : String = this.toString(); // __str__(self)와 같다.
+    var name : String = this.toString();
     fun getMyName() : String = name;
 }
 
@@ -48,50 +33,7 @@ fun main(args : Array<String>){
 
     var obj3 = ParentClass();
     println( obj3.getMyName() );
-
+    
     var obj4 = ChildClass();
     println( obj4.getMyName() );
 }
-```
-
-![image-20201016103918184](02_Kotlin_객체지향_프로그래밍.assets/image-20201016103918184.png)  
-
----
-
-<br>
-
-<br>
-
-<br>
-
-
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
