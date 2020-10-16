@@ -159,47 +159,57 @@ IoT 디바이스 활용
     <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
 
     -   **디지털, 아날로그 출력**  
-        [개발환경 구축](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/00-1.개발환경_구축.md)
+        [1. 개발환경 구축](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/00-1.개발환경_구축.md)
 
-        [아두이노 소개](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/00.아두이노_소개.md)
+        [2. 아두이노 소개](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/00.아두이노_소개.md)
 
-        [LED](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/01.LED.md)
+        [3. LED](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/01.LED.md)
 
-        [3색 LED](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/02.3색_LED.md)
+        [4. 3색 LED](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/02.3색_LED.md)
 
-        [16x2 LCD](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/03.16x2_LCD.md)
+        [5. 16x2 LCD](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/03.16x2_LCD.md)
 
-        [피에조 부저](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/04.피에조_부저.md)
+        [6. 피에조 부저](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/01.디지털%2C아날로그_출력/04.피에조_부저.md)
 
     -   **입력-버튼, 센서**  
-        [버튼](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/00.버튼.md)
+        [1. 버튼](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/00.버튼.md)
 
-        [가변저항](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/01.가변저항.md)
+        [2. 가변저항](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/01.가변저항.md)
 
-        [서보모터](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/02.서보모터.md)
+        [3. 서보모터](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/02.서보모터.md)
 
-        [조이스틱](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/03.조이스틱.md)
+        [4. 조이스틱](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/03.조이스틱.md)
 
-        [조도센터](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/04.조도센터.md)
+        [5. 조도센터](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/02.입력-버튼%2C센서/04.조도센터.md)
 
     -   **디지털 센서**  
-        [DHT11](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/03.디지털_센서/01.DHT11.md)
+        [1. DHT11](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/03.디지털_센서/01.DHT11.md)
 
-        [초음파 센서](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/03.디지털_센서/02.초음파_센서.md)
+        [2. 초음파 센서](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/03.디지털_센서/02.초음파_센서.md)
 
+        [3. 미세먼지_센서.md](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/03.디지털_센서/03.미세먼지_센서.md)
+        
     -   **통신**  
-        [ESP8266 1.AT명령어](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/01.ESP8266_1.AT명령어.md)
+        [1. ESP8266 1.AT명령어](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/01.ESP8266_1.AT명령어.md)
 
-        [ESP8266 2.라이브러리(WiFiEsp)](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/01.ESP8266_2.라이브러리(WiFiEsp).md)
+        [2. ESP8266 2.라이브러리(WiFiEsp)](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/01.ESP8266_2.라이브러리(WiFiEsp).md)
 
-        [MQTT](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/02.MQTT.md)
+        [3. MQTT](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/02.MQTT.md)
 
-        [MQTT-Arduino](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/03.MQTT-Arduino.md)
+        [4. MQTT-Arduino](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/04.통신/03.MQTT-Arduino.md)
 
     -   **37센서**  
-        [Led Sensors](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/05.37센서/1.Led_Sensors.md)
+        [1. Led Sensors](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/05.37센서/1.Led_Sensors.md)
 
-        [Digital Sensors](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/05.37센서/2.Digital_Sensors.md)
+        [2. Digital Sensors](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/05.37센서/2.Digital_Sensors.md)
+        
+    -   **블루투스**  
+        [1. 블루투스 연동(HC-05).md](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/06.블루투스/1.블루투스_연동(HC-05).md)
+
+        [2. 블루투스 컨트롤러.md](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/06.블루투스/2.블루투스_컨트롤러.md)
+
+    -   **모터**  
+        [1. DC 모터](https://github.com/cooluks2/iot/blob/master/02.device/arduinoMD/07.모터/1.DC_모터.md)
 
     </details>
 
@@ -210,27 +220,67 @@ IoT 디바이스 활용
     <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
     
     1.  [라즈베리파이 4B 스펙](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/01.1_라즈베리파이_4B_스펙.md)
-
-    2.  [라즈베리파이 시작하기](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/01.2_라즈베리_파이_시작하기.md)
-
+2.  [라즈베리파이 시작하기](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/01.2_라즈베리_파이_시작하기.md)
     3.  [라즈베리파이를 위한 리눅스 기초 배우기](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/02_라즈베리_파이를_위한_리눅스_기초_배우기.md)
-
-    4.  [라즈베리파이 GPIO 및 센서 활용하기](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/03_라즈베리_파이_GPIO_및_센서_활용하기.md)
-
+4.  [라즈베리파이 GPIO 및 센서 활용하기](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/03_라즈베리_파이_GPIO_및_센서_활용하기.md)
     5.  [MCP3008(ADC), SPI 통신](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/04_MCP3008(ADC)%2C_SPI_통신.md)
-
-    6.  [GPIO-ZERO](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/05_GPIO-ZERO.md)
-
+6.  [GPIO-ZERO](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/05_GPIO-ZERO.md)
     7.  [OpenCV01 영상 및 비디오 입출력](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/06_OpenCV01_영상_및_비디오_입출력.md)
-
-    8.  [OpenCV02 간단한 그래픽 처리](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/07_OpenCV02_간단한_그래픽_처리.md)
-
+8.  [OpenCV02 간단한 그래픽 처리](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/07_OpenCV02_간단한_그래픽_처리.md)
     9.  [OpenCV03 OpenCV 기본연산](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/08_OpenCV03_OpenCV_기본연산.md)
-
-    10.  [OpenCV04 OpenCV 얼굴 영역 추출](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/09_OpenCV04_OpenCV_얼굴_영역_추출.md)
-
+10.  [OpenCV04 OpenCV 얼굴 영역 추출](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/09_OpenCV04_OpenCV_얼굴_영역_추출.md)
     11.  [Pi Camera](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/10_Pi_Camera)
+12.  [Python-Pi Camera](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/11_Python-Pi_Camera.md)
+    13.  [Python-Pi Camera2 이미지 캡처](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/12_Python-Pi_Camera2_이미지_캡처.md)
+14.  [Python-Pi Camera3 동영상 촬영](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/13_Python-Pi_Camera3_동영상_촬영.md)
+    15.  [Python-Pi Camera4 이미지_프로세싱](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/14_Python-Pi_Camera4_이미지_프로세싱.md)
+16.  [카카오 음성합성, 음성인식](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/15_카카오_음성합성%2C_음성인식.md)
+    17.  [오디오 녹음 및 재생](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/16_오디오_녹음_및_재생.md)
+18.  [블루투스 통신](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/17_블루투스_통신.md)
+    19.  [자동차 제어](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/18_자동차_제어.md)
+20.  [MQTT-raspberry](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/19_MQTT-raspberry.md)
+    
+</details>
+    
+4.  MongoDB [CODE](https://github.com/cooluks2/iot/tree/master/02.device/MongoDB/PYMONGO-EX)
 
-    12.  [Python-Pi Camera](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/11_Python-Pi_Camera.md)
+    <details markdown="1">
+    <summary>목차 및 Markdown 정리</summary>
+    <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
+
+
+    1.  [MongoDB 이해하기](https://github.com/cooluks2/iot/blob/master/02.device/MongoDBMD/01_MongoDB_이해하기.md)
+    2.  [MongoDB 셸 경험하기](https://github.com/cooluks2/iot/blob/master/02.device/MongoDBMD/02_MongoDB_셸_경험하기.md)
+    3.  [PyMongo](https://github.com/cooluks2/iot/blob/master/02.device/MongoDBMD/03_PyMongo.md)
+
+    </details>
+
+5.  SecurityCamera [CODE](https://github.com/cooluks2/iot/tree/master/02.device/SecurityCamera)
+
+    <details markdown="1">
+    <summary>목차 및 Markdown 정리</summary>
+    <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
+
+
+    1.  [MJpeg stream(Django)](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/01_MJpeg_stream(Django).md)
+    2.  [카톡 메시지 보내기](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/02_카톡_메시지_보내기.md)
+    3.  [Object Detect(윈도우)](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/03_Object_Detect(윈도우).md)
+    4.  [Object Detect(라즈베리파이)](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/04_Object_Detect(라즈베리파이).md)
+
+    </details>
+
+6.  Kotlin [CODE](https://github.com/cooluks2/iot/tree/master/02.device/Kotlin)
+
+    <details markdown="1">
+    <summary>목차 및 Markdown 정리</summary>
+    <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
+
+
+    1.  [Kotlin 개발환경 구축](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/00_Kotlin_개발환경_구축.md)
+    2.  [Kotlin의 기본](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/01_Kotlin의_기본.md)
+    3.  [Kotlin 객체지향 프로그래밍](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/02_Kotlin_객체지향_프로그래밍.md)
+    4.  [Kotlin 함수형 프로그래밍](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/03_Kotlin_함수형_프로그래밍.md)
+    5.  [java와 연동](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/04_java와_연동.md)
+    6.  [Kotlin에서 활용하기](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/05_Kotlin에서_활용하기.md)
 
     </details>
