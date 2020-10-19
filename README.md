@@ -238,8 +238,11 @@ IoT 디바이스 활용
     17.  [오디오 녹음 및 재생](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/16_오디오_녹음_및_재생.md)
 	18.  [블루투스 통신](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/17_블루투스_통신.md)
     19.  [자동차 제어](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/18_자동차_제어.md)
-	20.  [MQTT-raspberry](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/19_MQTT-raspberry.md)
+	20.  [스레드](https://github.com/cooluks2/iot/blob/master/01.Interface/01_python/스레드.md)
+    21.  [MQTT - Python Client-Paho](https://github.com/cooluks2/iot/blob/master/01.Interface/01_python/MQTT_Python_Client-Paho.md)
+    22.  [MQTT-raspberry](https://github.com/cooluks2/iot/blob/master/02.device/RaspberryPiMD/19_MQTT-raspberry.md)
     
+
 </details>
     
 4.  MongoDB [CODE](https://github.com/cooluks2/iot/tree/master/02.device/MongoDB/PYMONGO-EX)
@@ -252,7 +255,7 @@ IoT 디바이스 활용
     1.  [MongoDB 이해하기](https://github.com/cooluks2/iot/blob/master/02.device/MongoDBMD/01_MongoDB_이해하기.md)
     2.  [MongoDB 셸 경험하기](https://github.com/cooluks2/iot/blob/master/02.device/MongoDBMD/02_MongoDB_셸_경험하기.md)
     3.  [PyMongo](https://github.com/cooluks2/iot/blob/master/02.device/MongoDBMD/03_PyMongo.md)
-
+    
     </details>
 
 5.  SecurityCamera [CODE](https://github.com/cooluks2/iot/tree/master/02.device/SecurityCamera)
@@ -266,7 +269,7 @@ IoT 디바이스 활용
     2.  [카톡 메시지 보내기](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/02_카톡_메시지_보내기.md)
     3.  [Object Detect(윈도우)](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/03_Object_Detect(윈도우).md)
     4.  [Object Detect(라즈베리파이)](https://github.com/cooluks2/iot/blob/master/02.device/SecurityCameraMD/04_Object_Detect(라즈베리파이).md)
-
+    
     </details>
 
 6.  Kotlin [CODE](https://github.com/cooluks2/iot/tree/master/02.device/Kotlin)
@@ -282,5 +285,5 @@ IoT 디바이스 활용
     4.  [Kotlin 함수형 프로그래밍](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/03_Kotlin_함수형_프로그래밍.md)
     5.  [java와 연동](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/04_java와_연동.md)
     6.  [Kotlin에서 활용하기](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/05_Kotlin에서_활용하기.md)
-
+    
     </details>
