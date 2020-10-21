@@ -88,7 +88,7 @@
 
 <br>
 
-**Anko 라이브러리**
+**Anko 라이브러리** ☆☆☆
 
 -   https://github.com/Kotlin/anko 
 
@@ -356,6 +356,25 @@ class ResultActivity : AppCompatActivity() {
 
 <br>
 
+**속성 추가** - 뒤로가기 버튼 생성
+
+AndroidManifest.xml
+
+```xml
+    :
+<activity android:name=".ResultActivity"
+            android:parentActivityName=".MainActivity"></activity>
+    :
+```
+
+<img src="05_BMI_Calc.assets/image-20201021143541422.png" alt="image-20201021143541422" style="zoom:10%;" />  
+
+>   핸드폰 하단의 back 버튼은 데이터가 남아있으나
+>
+>   이 경우 데이터가 남아있지 않다.
+
+<br>
+
 <br>
 
 ### 데이터 저장하고 복원하기
@@ -374,19 +393,54 @@ class ResultActivity : AppCompatActivity() {
 **MainActivity.kt**
 
 ```kotlin
+package com.example.bmicalc
 
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.preference.PreferenceManager
+import org.jetbrains.anko.toast
+import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        loadData()
+        resultButton.setOnClickListener {
+            val height = heightEditText.text.toString().toInt()
+            val weight = weightEditText.text.toString().toInt()
+
+            saveData(height, weight)
+
+            startActivity<ResultActivity>(
+                "height" to height,
+                "weight" to weight
+            )
+        }
+    }
+    private fun saveData(height: Int, weight: Int) {
+        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = pref.edit()
+        editor.putInt("KEY_HEIGHT", height)
+            .putInt("KEY_WEIGHT", weight)
+            .apply()
+    }
+
+    private fun loadData() {
+        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+        val height = pref.getInt("KEY_HEIGHT", 0)
+        val weight = pref.getInt("KEY_WEIGHT", 0)
+        if (height != 0 && weight != 0) {
+            heightEditText.setText(height.toString())
+            weightEditText.setText(weight.toString())
+        }
+    }
+}
 ```
 
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
+>   뒤로가기를 눌러도 마지막에 사용한 데이터가 저장된다.
 
 <br>
