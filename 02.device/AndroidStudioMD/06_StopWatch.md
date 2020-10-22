@@ -204,6 +204,6 @@ class MainActivity : AppCompatActivity() {
 
 <br>
 
->   UI update 작업은 UiThred가 해주어야 한다.
+>   UI update 작업은 UiThread가 해주어야 한다.
 
 <br>
