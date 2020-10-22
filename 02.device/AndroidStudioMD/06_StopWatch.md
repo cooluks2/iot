@@ -124,31 +124,38 @@ import kotlin.concurrent.timer
 
 
 class MainActivity : AppCompatActivity() {
-    private var time = 0
-    private var isRunning = false
-    private var timerTask: Timer? = null
-    private var lap = 1
+    private var time = 0  // Counter 10ms마다 1증가
+    private var isRunning = false  // 버튼 이미지 결정
+    private var timerTask: Timer? = null  // null 허용 변수 ☆ Thread
+    private var lap = 1 // 랩타임 순번
+    // 안드로이드에서는 MainThread를 UiThread라 부른다.
+    // 수정 작업은 UiThread만 할 수 있다.
+    // 여러 WorkThread는 1개 밖에 없는 자원을 허용하면 자원을 보장할 수 없다.
+    // 사용하려면 추후 Lock 매커니즘이 필요하다.
 
     private fun start() {
         fab.setImageResource(R.drawable.ic_baseline_pause_24)
-        timerTask = timer(period = 10) {
+        // UiThread
+        timerTask = timer(period = 10) { // 10ms
             time++
             val sec = time / 100
             val milli = time % 100  // timer Thread
             runOnUiThread {  // UI Update (Ui Thread)
-                secTextView.text = "$sec"
-                milliTextView.text = "$milli"
+                secTextView.text = "$sec" // 함수!
+                milliTextView.text = "$milli" // 함수!
             }
+            // runOnUiThread가 주석처리되면 timer가 실행하여 예외발생하고 앱이 종료됨
         }
     }
 
     private fun pause() {
         fab.setImageResource(R.drawable.ic_baseline_play_arrow_24)
-        timerTask?.cancel()
+        timerTask?.cancel() // ?가 나오면 Null 처리 떠올리자!
+        // if != null 호출을 해준다.
     }
 
     private fun reset() {
-        timerTask?.cancel()
+        timerTask?.cancel() // Timer Thread 종료
 
         // Ui Thread가 동작
 
