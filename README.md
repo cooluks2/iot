@@ -282,8 +282,34 @@ IoT 디바이스 활용
     1.  [Kotlin 개발환경 구축](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/00_Kotlin_개발환경_구축.md)
     2.  [Kotlin의 기본](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/01_Kotlin의_기본.md)
     3.  [Kotlin 객체지향 프로그래밍](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/02_Kotlin_객체지향_프로그래밍.md)
-    4.  [Kotlin 함수형 프로그래밍](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/03_Kotlin_함수형_프로그래밍.md)
-    5.  [java와 연동](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/04_java와_연동.md)
-    6.  [Kotlin에서 활용하기](https://github.com/cooluks2/iot/blob/master/02.device/KotlinMD/05_Kotlin에서_활용하기.md)
-    
+
+
+    </details>
+
+6.  AndroidStudio 
+
+    <details markdown="1">
+    <summary>목차 및 Markdown 정리</summary>
+    <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
+
+	1. [개발환경구축](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/00_개발환경_구축.md)
+
+	2. [화면 디자인](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/01_화면_디자인.md)
+
+	3. [프로그램 기본](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/02_프로그램_기본.md)
+
+	4. [Activity](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/03_Activity.md)
+
+	5. [Toast, Notification](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/04_Toast%2C_Notification.md)
+
+	6. [BMI Calc](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/05_BMI_Calc.md)
+
+	7. [StopWatch](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/06_StopWatch.md)
+
+	8. [Dialog](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/07_Dialog.md)
+
+	9. [WebBrowser](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/08_WebBrowser.md)
+
+	10. [RecyclerView](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/09_RecyclerView.md)
+
     </details>
