@@ -201,3 +201,88 @@ class MainActivity : AppCompatActivity() {
 <img src="09_RecyclerView.assets/image-20201023103040128.png" alt="image-20201023103040128" style="zoom:15%;" />  
 
 <br>
+
+<br>
+
+### 데이터 MainActivity에서 관리하기 - 실전
+
+**MainActivity.kt**
+
+```kotlin
+package com.example.recyclerviewex
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
+
+class MainActivity : AppCompatActivity() {
+    var items: MutableList<MainData> = mutableListOf(
+        MainData("Title1", "Content1"),
+        MainData("Title2", "Content2"),
+        MainData("Title3", "Content3"))
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        rv_main_list.adapter = MainAdapter(items)
+
+        // 기존
+//        rv_main_list.adapter = MainAdapter()
+//        rv_main_list.layoutManager = LinearLayoutManager(this)
+
+//        rv_main_list.adapter = MainAdapter()
+//        rv_main_list.layoutManager = GridLayoutManager(this,2) // Linear가 아닌 Grid 방식 운용 시
+    }
+}
+```
+
+<br>
+
+**MainAdapter.kt**
+
+```kotlin
+package com.example.recyclerviewex
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_main.view.*
+
+// var이 없으면 지역변수, var을 추가 : 생성자 매개변수 앞에 var이 붙으면 멤버 변수로 활용하겠다는 뜻
+class MainAdapter(var items: MutableList<MainData>) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+    // var items: MutableList<MainData> = items 를 단축시킨 것
+
+    // 3번째 호출
+    inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tvTitle = itemView.tv_main_title
+        val tvContent = itemView.tv_main_content
+    }
+
+    // 2번째 호출
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): MainViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_main, parent, false)
+        return MainViewHolder(view)
+    }
+
+    // 4번째 호출
+    override fun onBindViewHolder(holder: MainViewHolder,
+                                  position: Int) {
+        items[position].let { item ->
+            with(holder) {
+                tvTitle.text = item.title
+                tvContent.text = item.content
+            }
+        }
+    }
+
+    // 1번째 호출
+    override fun getItemCount(): Int = items.size
+
+}
+```
+
+<br>
