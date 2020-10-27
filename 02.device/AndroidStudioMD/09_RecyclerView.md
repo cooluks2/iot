@@ -227,6 +227,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         rv_main_list.adapter = MainAdapter(items)
+        rv_main_list.layoutManager = GridLayoutManager(this,2)
 
         // 기존
 //        rv_main_list.adapter = MainAdapter()
@@ -286,3 +287,7 @@ class MainAdapter(var items: MutableList<MainData>) : RecyclerView.Adapter<MainA
 ```
 
 <br>
+
+**실행 결과**
+
+<img src="09_RecyclerView.assets/image-20201027215030681.png" alt="image-20201027215030681" style="zoom:15%;" />  
