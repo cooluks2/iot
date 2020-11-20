@@ -312,4 +312,8 @@ IoT 디바이스 활용
 
 	10. [RecyclerView](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/09_RecyclerView.md)
 
+	11. [전자액자](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/10_%EC%A0%84%EC%9E%90%EC%95%A1%EC%9E%90.md)
+
+	12. [블루투스 통신](https://github.com/cooluks2/iot/blob/master/02.device/AndroidStudioMD/11_%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4_%ED%86%B5%EC%8B%A0.md)
+
     </details>
